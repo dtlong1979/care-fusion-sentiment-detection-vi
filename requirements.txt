@@ -1,23 +1,20 @@
-# Core DL stack (PhoBERT fine-tuning)
-# NOTE: on a CUDA machine/Colab, install the matching torch wheel first (see README),
-# then `pip install -r requirements.txt` will skip reinstalling torch.
-torch>=2.2,<2.5
-transformers==4.44.2
-tokenizers>=0.19,<0.20
+# IMPORTANT: torch / torchvision are intentionally NOT listed here.
+# Colab and Kaggle ship a CUDA-enabled torch; pinning it would downgrade their
+# GPU build (and drag numpy/scipy/sklearn down with it). Install torch yourself
+# for local / other machines first (see README), then `pip install -r requirements.txt`
+# only adds the lightweight, platform-agnostic deps below.
+#
+# Lower bounds only (no upper caps / exact pins) so we never force-downgrade a
+# host's existing scientific stack. The exact resolved versions are recorded at
+# run time for reproducibility (Part H).
 
-# Vietnamese word segmentation for PhoBERT (requires Java >= 1.8)
+transformers>=4.40
 py_vncorenlp==0.1.4
-
-# Affective markers
-emoji==2.12.1
-
-# Data / numerics / stats
-numpy==1.26.4
-pandas==2.2.2
-scikit-learn==1.5.1
-scipy==1.13.1
-pyyaml==6.0.2
-tqdm==4.66.5
-
-# Dev
-pytest==8.3.2
+emoji>=2.10
+numpy>=1.26
+pandas>=2.0
+scikit-learn>=1.3
+scipy>=1.10
+pyyaml>=6.0
+tqdm>=4.66
+pytest>=8.0

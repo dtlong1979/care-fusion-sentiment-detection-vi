@@ -38,7 +38,14 @@ Yêu cầu: **Python 3.11**, **Java ≥ 8** (cho VnCoreNLP — đặt `JAVA_HOME
 # tạo môi trường
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
+
+# torch KHÔNG nằm trong requirements (để không phá bản GPU có sẵn của Colab/Kaggle).
+# Cài torch trước cho máy local — chọn 1:
+pip install torch --index-url https://download.pytorch.org/whl/cu124   # GPU NVIDIA
+# pip install torch --index-url https://download.pytorch.org/whl/cpu   # chỉ CPU
+
 pip install -r requirements.txt
+pip install -e .
 $env:JAVA_HOME = "C:\Program Files\Java\jdk-21"   # trỏ tới JDK của bạn
 
 # Part A — tiền xử lý (tải model VnCoreNLP ở lần đầu)
