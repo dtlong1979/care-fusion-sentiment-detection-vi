@@ -1,0 +1,79 @@
+# CARE-Fusion — default configuration (Part H of the protocol).
+# Override any field on the CLI or via a second YAML. Changing GPU = changing
+# `train.batch_size` / `train.fp16` only; nothing else is hardware-specific.
+
+paths:
+  raw_csv: data/raw/vigoemotions_text_emoji_6groups.csv
+  processed_dir: data/processed
+  artifacts_dir: artifacts
+  vncorenlp_dir: vncorenlp        # RDRSegmenter model is downloaded here on first run
+
+data:
+  text_col: text
+  label_col: emotion_group
+  split_col: source_split
+  id_col: source_id
+  type_col: emoji_type
+  csv_encoding: utf-8-sig          # the source CSV carries a UTF-8 BOM
+  keep_original_split: true        # A1: keep the dataset's train/val/test split
+
+labels:                            # C = 6  (fixed order -> label2id)
+  - positive
+  - sadness
+  - anger
+  - fear
+  - interest
+  - neutral
+
+preprocess:
+  apply_nfc: true                  # A1
+  collapse_elongation: true        # canonicalize ":)))" -> ":))" for the q-table
+  max_length: 256                  # A4
+  phobert_name: vinai/phobert-base
+  segment: true                    # A3 — REQUIRED for PhoBERT; needs Java
+
+resources:                         # built from TRAIN only (Part B)
+  laplace_alpha: 1.0               # B1
+  low_freq_tau: 5                  # B1 back-off threshold
+  oof_folds: 5                     # B2 out-of-fold p_text
+  delta_low_pct: 33                # B2 percentile thresholds on train delta
+  delta_high_pct: 66
+  ppmi_min_cooccur: 1              # B3
+
+model:                             # Part C
+  d_t: 768                         # PhoBERT-base hidden
+  d_e: 128                         # marker embedding
+  d: 256                           # fusion dim
+  cross_attn_heads: 4
+  gcn_layers: 2
+
+train:                             # Part D / H
+  seeds: [13, 42, 123, 2024, 7]
+  lr_phobert: 2.0e-5
+  lr_head: 1.0e-3
+  weight_decay: 0.01
+  warmup_ratio: 0.10
+  grad_clip: 1.0
+  batch_size: 16                   # 16-32; bump to 32-48 on A100
+  max_epochs: 20
+  patience: 3                      # early stop on macro-F1 (val)
+  fp16: true                       # set false on CPU smoke-test
+  lambda1: 0.3                     # L_route weight   (grid: 0.1/0.3/0.5/1.0)
+  lambda2: 0.3                     # L_cf weight      (grid: 0.1/0.3/0.5/1.0)
+  focal_gamma: 2.0
+  cb_beta: 0.9999                  # class-balanced beta (Cui et al.)
+
+eval:
+  primary_metric: macro_f1
+  report_5class_macro: true        # exclude near-empty `neutral` for the robust headline
+  bootstrap_resamples: 1000        # Part G — 95% CI
+  human_verify_n: 300              # F2 manual regime labels
+
+# Smoke-test profile: 1 seed, 1 epoch, CPU — proves the pipeline end to end.
+smoke:
+  seeds: [42]
+  max_epochs: 1
+  batch_size: 8
+  fp16: false
+  oof_folds: 2
+  subset: 256                      # cap samples for a fast local run
