@@ -109,7 +109,7 @@ python -m care_fusion.evaluate    --config configs/default.yaml --care-ckpt arti
 ```
 
 ## Limitations (minh bạch cho bài báo)
-- **F5 (độ nhạy quy tắc tie-break 27→6):** CSV cung cấp chỉ có nhãn 6 nhóm đã ánh xạ, **không** kèm 27 nhãn gốc → không tái dựng được quy tắc ưu tiên. Cần tải annotation gốc ViGoEmotions để chạy F5.
+- **F5 (độ nhạy quy tắc tie-break 27→6):** đã hiện thực trong `scripts/f5_sensitivity.py`, dùng 3 file gốc ViGoEmotions (nhãn 27) để dựng lại nhãn theo quy tắc thay thế và đánh giá lại từ predictions đã lưu (không train lại). **31,69% mẫu là đa nhóm** (chịu tác động quy tắc ưu tiên) — xem `scripts/compute_multigroup.py`.
 - **Cross-platform:** dataset không có trường nền tảng → không đánh giá cross-platform (đưa vào future work).
 - **`neutral` cực thưa** (val 4 / test 6): báo cáo riêng + dùng macro-F1 5 lớp đông làm kết luận chính phụ trợ.
 - **`−q` (lexicon phương Tây):** cần một emoji-sentiment lexicon ngoài để thay `q_j`; hiện để ngỏ (hook qua `q_table` thay thế).
