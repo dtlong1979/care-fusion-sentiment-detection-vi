@@ -208,8 +208,11 @@ def main(argv: List[str] = None):
         print(f"  McNemar CARE vs {args.baseline}: b={mc['b']} c={mc['c']} "
               f"stat={mc['stat']:.3f} p_chi2={mc['p_chi2']:.4g} p_exact={mc['p_exact']:.4g}")
 
-    # Wilcoxon across seeds (needs >=2 seeds in results.json)
-    res_path = art / "results.json"
+    # Wilcoxon across seeds (needs >=2 seeds in results.json); prefer the copy
+    # next to the predictions (Drive/out dir), fall back to artifacts/.
+    res_path = Path(args.preds_dir).parent / "results.json"
+    if not res_path.exists():
+        res_path = art / "results.json"
     if res_path.exists():
         res = json.loads(res_path.read_text(encoding="utf-8"))
         a = res.get("CARE_full", {}).get("test_macro_f1", [])

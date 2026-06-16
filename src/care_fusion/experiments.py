@@ -82,7 +82,12 @@ def run(cfg, device, profile, variants: List[str], out_dir: Path):
     preds_dir = out_dir / "preds"
     preds_dir.mkdir(parents=True, exist_ok=True)
 
-    results = {}
+    # results.json lives in out_dir (e.g. Google Drive) so it survives a Colab
+    # disconnect, alongside the preds/checkpoints. Merge with any previous run so
+    # staged invocations (main models first, ablations later, or a re-run after a
+    # disconnect) accumulate rather than overwrite.
+    res_path = out_dir / "results.json"
+    results = json.loads(res_path.read_text(encoding="utf-8")) if res_path.exists() else {}
     for name in variants:
         spec = VARIANTS[name]
         kind = spec["kind"]
@@ -93,6 +98,7 @@ def run(cfg, device, profile, variants: List[str], out_dir: Path):
             yte = np.array([r["label_id"] for r in test])
             f1 = macro_f1(yte, np.full_like(yte, maj))
             results[name] = {"test_macro_f1": [f1], "mean": f1, "std": 0.0}
+            res_path.write_text(json.dumps(results, indent=2), encoding="utf-8")
             print(f"  test macro-F1 = {f1:.4f}")
             continue
 
@@ -127,12 +133,13 @@ def run(cfg, device, profile, variants: List[str], out_dir: Path):
         results[name] = {"test_macro_f1": f1s, "mean": float(arr.mean()), "std": float(arr.std())}
         print(f"  >>> {name}: {arr.mean():.4f} ± {arr.std():.4f}")
 
-    (art / "results.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
-    print("\n================ RESULTS (test macro-F1) ================")
-    for name in variants:
-        r = results[name]
+        res_path.write_text(json.dumps(results, indent=2), encoding="utf-8")  # save after each variant
+
+    (art / "results.json").write_text(json.dumps(results, indent=2), encoding="utf-8")  # convenience copy
+    print("\n================ RESULTS (test macro-F1, all accumulated) ================")
+    for name, r in results.items():
         print(f"  {name:18} {r['mean']:.4f} ± {r['std']:.4f}")
-    print(f"\nSaved -> {art/'results.json'} ; predictions -> {preds_dir}")
+    print(f"\nSaved -> {res_path} (+ {art/'results.json'}) ; predictions -> {preds_dir}")
 
 
 def main(argv: List[str] = None):
