@@ -201,13 +201,72 @@ class GCNEnrich(nn.Module):
         return z + self.enrich(pooled)
 
 
+def _marker_summary(marker_q, marker_mask):
+    """Unweighted mean of marker q-vectors per sample -> [B, C] (zeros if none)."""
+    m = marker_mask.unsqueeze(-1)
+    denom = marker_mask.sum(1, keepdim=True).clamp_min(1e-8)
+    return (marker_q * m).sum(1) / denom
+
+
+class MarkerConcatModel(nn.Module):
+    """B2: PhoBERT pooled text concatenated with an unweighted marker-q summary."""
+
+    def __init__(self, cfg: dict):
+        super().__init__()
+        C = len(cfg["labels"])
+        self.text = TextEncoder(cfg["preprocess"]["phobert_name"], C)
+        self.cls = nn.Sequential(nn.Linear(self.text.d_t + C, 256), nn.GELU(), nn.Linear(256, C))
+
+    def forward(self, batch, drop_markers: bool = False):
+        H, pooled, text_logits = self.text(batch["input_ids"], batch["attention_mask"])
+        mask = torch.zeros_like(batch["marker_mask"]) if drop_markers else batch["marker_mask"]
+        summary = _marker_summary(batch["marker_q"], mask)
+        logits = self.cls(torch.cat([pooled, summary], dim=-1))
+        return {"logits": logits, "p_text": text_logits.softmax(-1), "marker_mask": mask}
+
+
+class ScalarGatedModel(nn.Module):
+    """B3: scalar gated fusion z = a * text + (1-a) * marker, a a per-sample scalar."""
+
+    def __init__(self, cfg: dict):
+        super().__init__()
+        C = len(cfg["labels"])
+        d = cfg["model"]["d"]
+        self.text = TextEncoder(cfg["preprocess"]["phobert_name"], C)
+        self.t_proj = nn.Linear(self.text.d_t, d)
+        self.m_proj = nn.Linear(C, d)
+        self.gate = nn.Linear(self.text.d_t + C, 1)
+        self.cls = nn.Linear(d, C)
+
+    def forward(self, batch, drop_markers: bool = False):
+        H, pooled, text_logits = self.text(batch["input_ids"], batch["attention_mask"])
+        mask = torch.zeros_like(batch["marker_mask"]) if drop_markers else batch["marker_mask"]
+        summary = _marker_summary(batch["marker_q"], mask)
+        a = torch.sigmoid(self.gate(torch.cat([pooled, summary], dim=-1)))   # [B,1] scalar
+        z = a * self.t_proj(pooled) + (1 - a) * self.m_proj(summary)
+        return {"logits": self.cls(z), "p_text": text_logits.softmax(-1), "marker_mask": mask}
+
+
 class CAREFusion(nn.Module):
-    def __init__(self, cfg: dict, marker_vocab, pmi_graph: dict, q_table: dict):
+    """Full model, with ablation switches (Part E):
+      use_routing  : 3-way regime fusion (False -> single operator = baseline B4)
+      use_delta    : feed congruence delta_j to the router
+      use_intensity: weight markers by c_j = log(1+count) (False -> uniform)
+      use_gcn      : enrich z with the PPMI-graph GCN
+    """
+
+    def __init__(self, cfg: dict, marker_vocab, pmi_graph: dict, q_table: dict,
+                 use_routing: bool = True, use_delta: bool = True,
+                 use_intensity: bool = True, use_gcn: bool = True):
         super().__init__()
         m = cfg["model"]
         C = len(cfg["labels"])
         self.C = C
         d_e, d = m["d_e"], m["d"]
+        self.use_routing = use_routing
+        self.use_delta = use_delta
+        self.use_intensity = use_intensity
+        self.use_gcn = use_gcn
 
         self.text = TextEncoder(cfg["preprocess"]["phobert_name"], C)
         d_t = self.text.d_t
@@ -215,8 +274,9 @@ class CAREFusion(nn.Module):
         self.cross = GatedCrossAttention(d_e, d_t, d, m["cross_attn_heads"])
         self.router = nn.Linear(2 * d_e + 2, 3)
         self.fusion = RegimeFusion(d_e, d_t, d)
+        # single fusion operator used when routing is ablated
+        self.fusion_single = nn.Sequential(nn.Linear(d_e + d_t, d), nn.GELU(), nn.Linear(d, d))
         self.z_empty = nn.Parameter(torch.zeros(d))          # z_emptyset (no markers)
-        self.use_gcn = True
         self.gcn = GCNEnrich(pmi_graph, q_table, marker_vocab.marker2id, C, d)
         self.classifier = nn.Linear(d, C)
 
@@ -228,18 +288,27 @@ class CAREFusion(nn.Module):
         if drop_markers:
             mask = torch.zeros_like(mask)                    # counterfactual: no markers
 
+        # intensity: real c_j, or 1 for every present marker when ablated
+        c_feat = batch["marker_c"] if self.use_intensity else mask.clone()
+
         e = self.markers(batch["marker_ids"], batch["marker_q"],
-                         batch["marker_c"], batch["marker_lowfreq"])
+                         c_feat, batch["marker_lowfreq"])
         g = self.cross(e, H, batch["attention_mask"])
 
         delta = jsd(p_text.unsqueeze(1), batch["marker_q"])  # [B, M]
-        router_in = torch.cat(
-            [g, e, delta.unsqueeze(-1), batch["marker_c"].unsqueeze(-1)], dim=-1)
+        delta_in = delta if self.use_delta else torch.zeros_like(delta)
+        router_in = torch.cat([g, e, delta_in.unsqueeze(-1), c_feat.unsqueeze(-1)], dim=-1)
         r_logits = self.router(router_in)                    # [B, M, 3]
         r = r_logits.softmax(-1)
 
-        z_j = self.fusion(g, pooled, r)                      # [B, M, d]
-        c = batch["marker_c"] * mask                         # intensity weights
+        if self.use_routing:
+            z_j = self.fusion(g, pooled, r)                  # [B, M, d]
+        else:
+            ctx = pooled.unsqueeze(1).expand(-1, g.shape[1], -1)
+            z_j = self.fusion_single(torch.cat([g, ctx], dim=-1))
+            r_logits = None                                  # no routing supervision
+
+        c = c_feat * mask                                    # fusion weights
         denom = c.sum(1, keepdim=True)                       # [B, 1]
         z = (c.unsqueeze(-1) * z_j).sum(1) / denom.clamp_min(1e-8)
         has_marker = (denom > 0).float()                     # [B, 1]

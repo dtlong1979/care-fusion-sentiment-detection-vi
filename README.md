@@ -87,9 +87,25 @@ Mẹo giảm chi phí: chạy ablation **3 seed**, chỉ CARE-Fusion + baseline 
 ## Tiến độ
 
 - [x] **Phase 1** — preprocess (A), resources `q_j` + PMI (B1, B3), unit test, smoke-test.
-- [x] **Phase 2 (lõi)** — model CARE-Fusion (C), losses (D1), engine + train loop (D), baseline B0/B1 + OOF p_text → weak labels (B2). Đã smoke-test forward/backward + train end-to-end trên CPU.
-- [ ] **Phase 2 (còn lại)** — baselines B2/B3/B4 + ablation (E).
-- [ ] **Phase 3** — đánh giá F1–F5, kiểm định thống kê G, đóng gói tái lập.
+- [x] **Phase 2** — model CARE-Fusion (C), losses (D1), engine + train (D), baselines B0–B4 + OOF→weak labels (B2), ablation flags (−routing/−δ/−L_cf/−c_j/−GCN), harness `experiments.py` chạy cả ma trận. Smoke-test mọi variant + pilot trên 3050.
+- [x] **Phase 3** — `evaluate.py`: F1 (macro/per-class/confusion/5-lớp), F2 phân tầng theo chế độ, F3 causal, F4 faithfulness, G (bootstrap CI + McNemar + Wilcoxon).
+- [ ] **Chạy thật A100** — full data, max_len 256, 5 seed, dò λ → bảng số cho bài báo.
+
+### Lệnh chạy đầy đủ (A100)
+```bash
+python -m care_fusion.preprocess --config configs/default.yaml
+python -m care_fusion.resources  --config configs/default.yaml --steps q,pmi
+python -m care_fusion.baselines  --config configs/default.yaml --emit-oof
+python -m care_fusion.resources  --config configs/default.yaml --steps weak --ptext artifacts/p_text_oof.json
+python -m care_fusion.experiments --config configs/default.yaml --out artifacts/checkpoints   # B0–B4 + CARE + ablations
+python -m care_fusion.evaluate    --config configs/default.yaml --care-ckpt artifacts/checkpoints/CARE_full_seed13.pt --baseline B1_text --preds-dir artifacts/checkpoints/preds
+```
+
+## Limitations (minh bạch cho bài báo)
+- **F5 (độ nhạy quy tắc tie-break 27→6):** CSV cung cấp chỉ có nhãn 6 nhóm đã ánh xạ, **không** kèm 27 nhãn gốc → không tái dựng được quy tắc ưu tiên. Cần tải annotation gốc ViGoEmotions để chạy F5.
+- **Cross-platform:** dataset không có trường nền tảng → không đánh giá cross-platform (đưa vào future work).
+- **`neutral` cực thưa** (val 4 / test 6): báo cáo riêng + dùng macro-F1 5 lớp đông làm kết luận chính phụ trợ.
+- **`−q` (lexicon phương Tây):** cần một emoji-sentiment lexicon ngoài để thay `q_j`; hiện để ngỏ (hook qua `q_table` thay thế).
 
 ## License & trích dẫn
 

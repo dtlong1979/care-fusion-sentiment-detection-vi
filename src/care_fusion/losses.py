@@ -39,7 +39,10 @@ def class_balanced_focal_loss(logits, targets, class_counts, beta=0.9999, gamma=
 
 
 def routing_loss(r_logits, regime_labels):
-    """CE over markers with weak labels; -100 entries ignored. 0 if no supervision."""
+    """CE over markers with weak labels; -100 entries ignored. 0 if no supervision
+    or if routing is ablated (r_logits is None)."""
+    if r_logits is None:
+        return regime_labels.new_zeros((), dtype=torch.float)
     B, M, K = r_logits.shape
     flat_logits = r_logits.reshape(B * M, K)
     flat_labels = regime_labels.reshape(B * M)
