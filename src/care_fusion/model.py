@@ -115,15 +115,18 @@ class RegimeFusion(nn.Module):
     router weights select the mix per marker. The learned beta_k are interpretable
     and reported as a result."""
 
-    def __init__(self, d_e: int, d_t: int, d: int):
+    def __init__(self, d_e: int, d_t: int, d: int, beta_init=None):
         super().__init__()
         self.proj_m = nn.Linear(d_e, d)      # marker stream
         self.proj_t = nn.Linear(d_t, d)      # text stream
         self.refine = nn.ModuleList(
             [nn.Sequential(nn.GELU(), nn.Linear(d, d)) for _ in range(3)])
-        # marker-vs-text balance logits for [redundancy, complementarity, conflict];
-        # init: redundancy text-heavy (-1), complementarity balanced (0), conflict marker-heavy (+1)
-        self.beta = nn.Parameter(torch.tensor([-1.0, 0.0, 1.0]))
+        # marker-vs-text balance logits for [redundancy, complementarity, conflict].
+        # Default biased: redundancy text-heavy (-1), conflict marker-heavy (+1).
+        # beta_init=[0,0,0] gives a NEUTRAL start to test if data itself favors
+        # emoji-dominance under conflict.
+        init = beta_init if beta_init is not None else [-1.0, 0.0, 1.0]
+        self.beta = nn.Parameter(torch.tensor(init, dtype=torch.float))
 
     def marker_weights(self):
         """Learned per-regime marker dominance beta_k in (0,1) — for reporting."""
@@ -271,7 +274,7 @@ class CAREFusion(nn.Module):
 
     def __init__(self, cfg: dict, marker_vocab, pmi_graph: dict, q_table: dict,
                  use_routing: bool = True, use_delta: bool = True,
-                 use_intensity: bool = True, use_gcn: bool = True):
+                 use_intensity: bool = True, use_gcn: bool = True, beta_init=None):
         super().__init__()
         m = cfg["model"]
         C = len(cfg["labels"])
@@ -287,7 +290,7 @@ class CAREFusion(nn.Module):
         self.markers = MarkerEncoder(marker_vocab.size, C, d_e)
         self.cross = GatedCrossAttention(d_e, d_t, d, m["cross_attn_heads"])
         self.router = nn.Linear(2 * d_e + 2, 3)
-        self.fusion = RegimeFusion(d_e, d_t, d)
+        self.fusion = RegimeFusion(d_e, d_t, d, beta_init=beta_init)
         # single fusion operator used when routing is ablated
         self.fusion_single = nn.Sequential(nn.Linear(d_e + d_t, d), nn.GELU(), nn.Linear(d, d))
         self.z_empty = nn.Parameter(torch.zeros(d))          # z_emptyset (no markers)

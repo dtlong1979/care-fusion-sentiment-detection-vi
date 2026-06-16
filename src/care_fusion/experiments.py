@@ -42,6 +42,7 @@ VARIANTS: Dict[str, dict] = {
     "CARE_-cf":        {"kind": "care", "flags": {}, "overrides": {"train": {"lambda2": 0.0}}},
     "CARE_-intensity": {"kind": "care", "flags": {"use_intensity": False}},
     "CARE_-gcn":       {"kind": "care", "flags": {"use_gcn": False}},
+    "CARE_neutralbeta": {"kind": "care", "flags": {"beta_init": [0.0, 0.0, 0.0]}},  # F5-style control
 }
 
 
@@ -128,6 +129,9 @@ def run(cfg, device, profile, variants: List[str], out_dir: Path):
                 torch.save({"state_dict": res["state"], "cfg": cfg_v, "seed": seed,
                             "flags": spec.get("flags", {})}, out_dir / f"{name}_seed{seed}.pt")
             print(f"  seed {seed}: val={res['best_f1']:.4f} test={f1:.4f}")
+            if hasattr(model, "fusion") and hasattr(model.fusion, "marker_weights"):
+                bw = [round(float(x), 3) for x in model.fusion.marker_weights().tolist()]
+                print(f"    learned beta [redundancy, complementarity, conflict] = {bw}")
 
         arr = np.array(f1s)
         results[name] = {"test_macro_f1": f1s, "mean": float(arr.mean()), "std": float(arr.std())}
