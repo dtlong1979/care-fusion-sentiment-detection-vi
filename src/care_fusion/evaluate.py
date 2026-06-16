@@ -76,7 +76,7 @@ def load_care(ckpt_path, vocab, pmi, q_table, device):
 @torch.no_grad()
 def run_care(model, loader, device):
     """Forward + counterfactual (marker removal) over test; collect per-sample stats."""
-    keys = ["preds", "probs", "labels", "delta_max", "n_marker", "cf_preds", "kl_shift"]
+    keys = ["preds", "probs", "labels", "delta_wmean", "n_marker", "cf_preds", "kl_shift"]
     acc = {k: [] for k in keys}
     for batch in loader:
         batch = move(batch, device)
@@ -85,13 +85,18 @@ def run_care(model, loader, device):
         p = out["logits"].softmax(-1)
         pcf = cf["logits"].softmax(-1)
         mask = batch["marker_mask"]
-        dmax = out["delta"].masked_fill(mask == 0, float("nan"))
-        dmax = torch.nan_to_num(dmax, nan=-1.0).max(1).values     # -1 if no marker
+        # per-sample congruence = intensity-weighted mean of per-marker JSD,
+        # matching how the model aggregates markers (z = sum c_j z_j / sum c_j).
+        # (Max-over-markers systematically over-populates the conflict tier.)
+        c = batch["marker_c"] * mask
+        wden = c.sum(1)
+        dwm = torch.where(wden > 0, (out["delta"] * c).sum(1) / wden.clamp_min(1e-8),
+                          torch.full_like(wden, -1.0))             # -1 if no marker
         kl = (p * (p.clamp_min(1e-8).log() - pcf.clamp_min(1e-8).log())).sum(-1)
         acc["preds"].append(p.argmax(-1).cpu())
         acc["probs"].append(p.cpu())
         acc["labels"].append(batch["labels"].cpu())
-        acc["delta_max"].append(dmax.cpu())
+        acc["delta_wmean"].append(dwm.cpu())
         acc["n_marker"].append(mask.sum(1).cpu())
         acc["cf_preds"].append(pcf.argmax(-1).cpu())
         acc["kl_shift"].append(kl.cpu())
@@ -115,7 +120,7 @@ def report_f1(name, labels, preds, cfg):
 
 def report_f2(stats_c, baseline, cfg, d_low, d_high):
     """Regime-stratified macro-F1: redundancy / complementarity / conflict."""
-    d = stats_c["delta_max"]
+    d = stats_c["delta_wmean"]
     regime = np.full(len(d), "no_marker", dtype=object)
     has = d >= 0
     regime[has & (d < d_low)] = "redundancy"

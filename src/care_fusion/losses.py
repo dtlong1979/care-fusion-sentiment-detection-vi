@@ -80,5 +80,14 @@ def compute_loss(out, batch, class_counts, cfg, out_cf: Optional[dict] = None) -
         beta=tcfg["cb_beta"], gamma=tcfg["focal_gamma"])
     l_route = routing_loss(out["r_logits"], batch["regime_labels"])
     l_cf = counterfactual_loss(out, out_cf) if out_cf is not None else out["logits"].new_zeros(())
-    total = l_cls + tcfg["lambda1"] * l_route + tcfg["lambda2"] * l_cf
-    return {"total": total, "cls": l_cls, "route": l_route, "cf": l_cf}
+    # Auxiliary supervision on the text head so p_text is a genuine text-only
+    # prediction -> delta_j = JSD(p_text || q_j) carries the intended meaning and
+    # the router's weak-label supervision stays consistent at inference.
+    aux_w = tcfg.get("aux_text_weight", 0.0)
+    if aux_w > 0 and "text_logits" in out:
+        l_aux = class_balanced_focal_loss(out["text_logits"], batch["labels"], class_counts,
+                                          beta=tcfg["cb_beta"], gamma=tcfg["focal_gamma"])
+    else:
+        l_aux = out["logits"].new_zeros(())
+    total = l_cls + tcfg["lambda1"] * l_route + tcfg["lambda2"] * l_cf + aux_w * l_aux
+    return {"total": total, "cls": l_cls, "route": l_route, "cf": l_cf, "aux": l_aux}
