@@ -146,7 +146,7 @@ def main(argv: List[str] = None):
     ap = argparse.ArgumentParser(description="Full experiment matrix (Part E)")
     ap.add_argument("--config", default="configs/default.yaml")
     ap.add_argument("--out", default="artifacts/checkpoints")
-    ap.add_argument("--profile", choices=["full", "smoke", "pilot"], default="full")
+    ap.add_argument("--profile", choices=["full", "smoke", "pilot", "pilot3"], default="full")
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--variants", default=None,
                     help="comma list; default = all. e.g. CARE_full,B1_text")

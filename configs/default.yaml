@@ -92,3 +92,15 @@ pilot:
   fp16: true
   cf_detach: true                  # counterfactual forward under no_grad (saves VRAM)
   oof_folds: 3
+
+# Pilot3: like pilot but 3 seeds + a bit more training, to compare configs ABOVE
+# the single-seed noise floor (which is ~5-8 macro-F1 points). Still local-GPU sized.
+pilot3:
+  seeds: [13, 42, 123]
+  max_epochs: 8
+  patience: 3
+  batch_size: 8
+  max_length: 128
+  fp16: true
+  cf_detach: true
+  oof_folds: 3
