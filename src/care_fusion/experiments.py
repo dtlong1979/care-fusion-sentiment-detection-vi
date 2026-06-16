@@ -124,9 +124,9 @@ def run(cfg, device, profile, variants: List[str], out_dir: Path):
             np.savez(preds_dir / f"{name}__seed{seed}.npz",
                      logits=ev["logits"], probs=ev["probs"],
                      preds=ev["preds"], labels=ev["labels"])
-            if name == "CARE_full":
+            if is_care:   # save every CARE variant so its F2/causal can be evaluated
                 torch.save({"state_dict": res["state"], "cfg": cfg_v, "seed": seed,
-                            "flags": spec.get("flags", {})}, out_dir / f"CARE_full_seed{seed}.pt")
+                            "flags": spec.get("flags", {})}, out_dir / f"{name}_seed{seed}.pt")
             print(f"  seed {seed}: val={res['best_f1']:.4f} test={f1:.4f}")
 
         arr = np.array(f1s)
