@@ -104,3 +104,14 @@ pilot3:
   fp16: true
   cf_detach: true
   oof_folds: 3
+
+# pilot5: 5 seeds for a statistically-meaningful local confirmation.
+pilot5:
+  seeds: [13, 42, 123, 2024, 7]
+  max_epochs: 6
+  patience: 2
+  batch_size: 8
+  max_length: 128
+  fp16: true
+  cf_detach: true
+  oof_folds: 3
