@@ -43,6 +43,7 @@ VARIANTS: Dict[str, dict] = {
     "CARE_-intensity": {"kind": "care", "flags": {"use_intensity": False}},
     "CARE_-gcn":       {"kind": "care", "flags": {"use_gcn": False}},
     "CARE_neutralbeta": {"kind": "care", "flags": {"beta_init": [0.0, 0.0, 0.0]}},  # F5-style control
+    "CARE_-confidence": {"kind": "care", "flags": {"use_confidence": False}},  # ablate entropy gating
 }
 
 

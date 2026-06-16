@@ -132,12 +132,20 @@ class RegimeFusion(nn.Module):
         """Learned per-regime marker dominance beta_k in (0,1) — for reporting."""
         return torch.sigmoid(self.beta.detach())
 
-    def forward(self, g, pooled_text, r):
+    def forward(self, g, pooled_text, r, conf=None):
+        # conf: [B, M] marker confidence in (0,1) (1 - normalized entropy of q_j).
+        # The effective marker weight is beta_k * conf, so an AMBIVALENT emoji
+        # (low conf) lets text dominate regardless of regime — encoding that a
+        # high-entropy emoji is a weak emotion cue.
         B, M, _ = g.shape
         m = self.proj_m(g)                                   # [B, M, d] marker stream
         t = self.proj_t(pooled_text).unsqueeze(1).expand(B, M, -1)  # text stream
         beta = torch.sigmoid(self.beta)                      # [3] in (0,1)
-        outs = [self.refine[k](beta[k] * m + (1 - beta[k]) * t) for k in range(3)]
+        c = conf.unsqueeze(-1) if conf is not None else 1.0  # [B,M,1] or scalar
+        outs = []
+        for k in range(3):
+            w = beta[k] * c                                  # effective marker weight
+            outs.append(self.refine[k](w * m + (1 - w) * t))
         f = torch.stack(outs, dim=-2)                        # [B, M, 3, d]
         z_j = (r.unsqueeze(-1) * f).sum(-2)                  # [B, M, d]
         return z_j
@@ -274,7 +282,8 @@ class CAREFusion(nn.Module):
 
     def __init__(self, cfg: dict, marker_vocab, pmi_graph: dict, q_table: dict,
                  use_routing: bool = True, use_delta: bool = True,
-                 use_intensity: bool = True, use_gcn: bool = True, beta_init=None):
+                 use_intensity: bool = True, use_gcn: bool = True,
+                 use_confidence: bool = True, beta_init=None):
         super().__init__()
         m = cfg["model"]
         C = len(cfg["labels"])
@@ -284,6 +293,7 @@ class CAREFusion(nn.Module):
         self.use_delta = use_delta
         self.use_intensity = use_intensity
         self.use_gcn = use_gcn
+        self.use_confidence = use_confidence
 
         self.text = TextEncoder(cfg["preprocess"]["phobert_name"], C)
         d_t = self.text.d_t
@@ -318,8 +328,14 @@ class CAREFusion(nn.Module):
         r_logits = self.router(router_in)                    # [B, M, 3]
         r = r_logits.softmax(-1)
 
+        if self.use_confidence:
+            qd = batch["marker_q"].clamp_min(1e-8)
+            conf = 1.0 - (-(qd * qd.log()).sum(-1) / math.log(self.C))  # [B,M] in (0,1)
+        else:
+            conf = None
+
         if self.use_routing:
-            z_j = self.fusion(g, pooled, r)                  # [B, M, d]
+            z_j = self.fusion(g, pooled, r, conf=conf)       # [B, M, d]
         else:
             ctx = pooled.unsqueeze(1).expand(-1, g.shape[1], -1)
             z_j = self.fusion_single(torch.cat([g, ctx], dim=-1))
