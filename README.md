@@ -87,7 +87,8 @@ Mẹo giảm chi phí: chạy ablation **3 seed**, chỉ CARE-Fusion + baseline 
 ## Tiến độ
 
 - [x] **Phase 1** — preprocess (A), resources `q_j` + PMI (B1, B3), unit test, smoke-test.
-- [ ] **Phase 2** — model CARE-Fusion (C), losses (D1), train loop (D), baseline text-only + OOF p_text → weak labels (B2), baselines B0–B4 (E).
+- [x] **Phase 2 (lõi)** — model CARE-Fusion (C), losses (D1), engine + train loop (D), baseline B0/B1 + OOF p_text → weak labels (B2). Đã smoke-test forward/backward + train end-to-end trên CPU.
+- [ ] **Phase 2 (còn lại)** — baselines B2/B3/B4 + ablation (E).
 - [ ] **Phase 3** — đánh giá F1–F5, kiểm định thống kê G, đóng gói tái lập.
 
 ## License & trích dẫn
