@@ -76,7 +76,8 @@ def load_care(ckpt_path, vocab, pmi, q_table, device):
 @torch.no_grad()
 def run_care(model, loader, device):
     """Forward + counterfactual (marker removal) over test; collect per-sample stats."""
-    keys = ["preds", "probs", "labels", "delta_wmean", "n_marker", "cf_preds", "kl_shift"]
+    keys = ["preds", "probs", "labels", "delta_wmean", "n_marker", "cf_preds",
+            "kl_shift", "marker_qsum"]
     acc = {k: [] for k in keys}
     for batch in loader:
         batch = move(batch, device)
@@ -100,6 +101,7 @@ def run_care(model, loader, device):
         acc["n_marker"].append(mask.sum(1).cpu())
         acc["cf_preds"].append(pcf.argmax(-1).cpu())
         acc["kl_shift"].append(kl.cpu())
+        acc["marker_qsum"].append((batch["marker_q"] * c.unsqueeze(-1)).sum(1).cpu())  # [B,C]
     return {k: torch.cat(v).numpy() for k, v in acc.items()}
 
 
@@ -136,6 +138,32 @@ def report_f2(stats_c, baseline, cfg, d_low, d_high):
         fc = macro(y[m], stats_c["preds"][m])
         fb = macro(y[m], baseline["preds"][m]) if baseline is not None else float("nan")
         print(f"  {strat:16} {int(m.sum()):5d}  {fc:7.4f}  {fb:9.4f}  {fc-fb:+7.4f}")
+
+
+def report_conflict_slice(stats_c, baseline, cfg):
+    """Headline slice: samples where the marker's polarity OPPOSES the gold-label
+    polarity (sarcasm-prone). This is where regime routing should pay off."""
+    labels = cfg["labels"]
+    POS = {"positive", "interest"}
+    NEG = {"sadness", "anger", "fear"}
+    pos_idx = [i for i, l in enumerate(labels) if l in POS]
+    neg_idx = [i for i, l in enumerate(labels) if l in NEG]
+    q = stats_c["marker_qsum"]
+    posm, negm = q[:, pos_idx].sum(1), q[:, neg_idx].sum(1)
+    marker_pol = np.where(stats_c["n_marker"] > 0, np.where(posm > negm, 1, -1), 0)
+    y = stats_c["labels"]
+    gold_pol = np.array([1 if labels[i] in POS else -1 if labels[i] in NEG else 0 for i in y])
+    conflict = ((marker_pol == 1) & (gold_pol == -1)) | ((marker_pol == -1) & (gold_pol == 1))
+    print(f"\n--- CONFLICT slice (marker polarity opposes gold polarity; sarcasm-prone) ---")
+    print(f"  n = {int(conflict.sum())} / {len(y)}")
+    if conflict.sum() == 0:
+        return
+    fc = macro(y[conflict], stats_c["preds"][conflict])
+    line = f"  CARE macro-F1 = {fc:.4f}"
+    if baseline is not None:
+        fb = macro(y[conflict], baseline["preds"][conflict])
+        line += f"   baseline = {fb:.4f}   Δ = {fc-fb:+.4f}"
+    print(line)
 
 
 def report_f3_f4(stats_c, cfg):
@@ -200,6 +228,11 @@ def main(argv: List[str] = None):
     if base is not None:
         report_f1(args.baseline, base["labels"], base["preds"], cfg)
     report_f2(sc, base, cfg, d_low, d_high)
+    report_conflict_slice(sc, base, cfg)
+    if hasattr(model.fusion, "marker_weights"):
+        bw = [round(float(x), 3) for x in model.fusion.marker_weights().tolist()]
+        print(f"\n--- Learned regime marker-dominance beta [redundancy, complementarity, "
+              f"conflict] = {bw}  (higher = emoji dominates over text) ---")
     report_f3_f4(sc, cfg)
 
     # Part G

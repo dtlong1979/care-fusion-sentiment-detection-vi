@@ -106,22 +106,36 @@ class GatedCrossAttention(nn.Module):
 
 
 class RegimeFusion(nn.Module):
-    """Three regime-specific fusion operators, mixed by the router weights."""
+    """Regime-specific fusion as an explicit, per-regime text<->marker balance.
+
+    Each regime k mixes a marker stream and a text stream with a learnable scalar
+    gate beta_k, biased at init so that under REDUNDANCY text dominates and under
+    CONFLICT the marker (emoji) dominates — encoding that in sarcasm the emoji
+    carries the true intent. A per-regime nonlinear refinement keeps capacity; the
+    router weights select the mix per marker. The learned beta_k are interpretable
+    and reported as a result."""
 
     def __init__(self, d_e: int, d_t: int, d: int):
         super().__init__()
-        def op():
-            return nn.Sequential(nn.Linear(d_e + d_t, d), nn.GELU(), nn.Linear(d, d))
-        self.F_rho = op()    # redundancy
-        self.F_kappa = op()  # complementarity
-        self.F_chi = op()    # conflict
+        self.proj_m = nn.Linear(d_e, d)      # marker stream
+        self.proj_t = nn.Linear(d_t, d)      # text stream
+        self.refine = nn.ModuleList(
+            [nn.Sequential(nn.GELU(), nn.Linear(d, d)) for _ in range(3)])
+        # marker-vs-text balance logits for [redundancy, complementarity, conflict];
+        # init: redundancy text-heavy (-1), complementarity balanced (0), conflict marker-heavy (+1)
+        self.beta = nn.Parameter(torch.tensor([-1.0, 0.0, 1.0]))
+
+    def marker_weights(self):
+        """Learned per-regime marker dominance beta_k in (0,1) — for reporting."""
+        return torch.sigmoid(self.beta.detach())
 
     def forward(self, g, pooled_text, r):
-        # g: [B,M,d_e]; pooled_text: [B,d_t] -> broadcast to markers
         B, M, _ = g.shape
-        ctx = pooled_text.unsqueeze(1).expand(B, M, -1)
-        x = torch.cat([g, ctx], dim=-1)
-        f = torch.stack([self.F_rho(x), self.F_kappa(x), self.F_chi(x)], dim=-2)  # [B,M,3,d]
+        m = self.proj_m(g)                                   # [B, M, d] marker stream
+        t = self.proj_t(pooled_text).unsqueeze(1).expand(B, M, -1)  # text stream
+        beta = torch.sigmoid(self.beta)                      # [3] in (0,1)
+        outs = [self.refine[k](beta[k] * m + (1 - beta[k]) * t) for k in range(3)]
+        f = torch.stack(outs, dim=-2)                        # [B, M, 3, d]
         z_j = (r.unsqueeze(-1) * f).sum(-2)                  # [B, M, d]
         return z_j
 
