@@ -6,14 +6,35 @@ same optimizer/seed protocol (Part E: same dataset, split, seed).
 """
 from __future__ import annotations
 
+import copy
 import random
-from typing import Callable, Dict, List, Optional
+from typing import Callable, Dict, List, Optional, Tuple
 
 import numpy as np
 import torch
 from sklearn.metrics import f1_score
 from torch.utils.data import DataLoader
 from transformers import get_linear_schedule_with_warmup
+
+
+def apply_profile(cfg: dict, profile: Optional[dict]) -> Tuple[dict, Optional[int]]:
+    """Merge a run profile (smoke/pilot) into a copy of cfg. Returns (cfg, subset).
+
+    Profile keys override train/preprocess/resources fields so the rest of the
+    code reads a single, consistent config regardless of profile.
+    """
+    cfg = copy.deepcopy(cfg)
+    if not profile:
+        return cfg, None
+    for k in ["seeds", "max_epochs", "patience", "batch_size", "fp16", "cf_detach",
+              "lambda1", "lambda2", "lr_phobert", "lr_head"]:
+        if k in profile:
+            cfg["train"][k] = profile[k]
+    if "max_length" in profile:
+        cfg["preprocess"]["max_length"] = profile["max_length"]
+    if "oof_folds" in profile:
+        cfg["resources"]["oof_folds"] = profile["oof_folds"]
+    return cfg, profile.get("subset")
 
 
 def set_seed(seed: int) -> None:

@@ -17,23 +17,32 @@ from transformers import AutoTokenizer
 
 from .baselines import build_loader
 from .data import CAREDataset, Collator, MarkerVocab, class_counts, load_jsonl
-from .engine import macro_f1, predict, set_seed, train_model
+from .engine import apply_profile, macro_f1, predict, set_seed, train_model
 from .losses import compute_loss
 from .model import CAREFusion
 
 
 def make_care_loss_fn(counts, cfg):
-    use_cf = cfg["train"]["lambda2"] > 0
+    tcfg = cfg["train"]
+    use_cf = tcfg["lambda2"] > 0
+    detach = tcfg.get("cf_detach", False)
 
     def loss_fn(model, batch):
         out = model(batch)
-        out_cf = model(batch, drop_markers=True) if use_cf else None
+        out_cf = None
+        if use_cf:
+            if detach:                      # counterfactual as a fixed target (low VRAM)
+                with torch.no_grad():
+                    out_cf = model(batch, drop_markers=True)
+            else:
+                out_cf = model(batch, drop_markers=True)
         return compute_loss(out, batch, counts, cfg, out_cf=out_cf)
 
     return loss_fn
 
 
 def run(cfg, device, profile, out_dir: Path):
+    cfg, subset = apply_profile(cfg, profile)
     C = len(cfg["labels"])
     art = Path(cfg["paths"]["artifacts_dir"])
     q_table = json.loads((art / "q_table.json").read_text(encoding="utf-8"))
@@ -50,15 +59,15 @@ def run(cfg, device, profile, out_dir: Path):
     train = load_jsonl(pdir / "train.jsonl")
     val = load_jsonl(pdir / "val.jsonl")
     test = load_jsonl(pdir / "test.jsonl")
-    if profile.get("subset"):
-        n = profile["subset"]
-        train, val, test = train[:n], val[: max(1, n // 4)], test[: max(1, n // 4)]
+    if subset:
+        train, val, test = train[:subset], val[: max(1, subset // 4)], test[: max(1, subset // 4)]
 
     tok = AutoTokenizer.from_pretrained(cfg["preprocess"]["phobert_name"])
     collate = Collator(tok, cfg["preprocess"]["max_length"], C)
-    bs = profile.get("batch_size", cfg["train"]["batch_size"])
+    tcfg = cfg["train"]
+    bs = tcfg["batch_size"]
     counts = class_counts(train, C)
-    seeds = profile.get("seeds", cfg["train"]["seeds"])
+    seeds = tcfg["seeds"]
 
     test_f1s = []
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -71,9 +80,9 @@ def run(cfg, device, profile, out_dir: Path):
             build_loader(train, vocab, collate, bs, True, weak=weak),
             build_loader(val, vocab, collate, bs, False, weak=weak),
             cfg, device, make_care_loss_fn(counts, cfg),
-            max_epochs=profile.get("max_epochs", cfg["train"]["max_epochs"]),
-            patience=cfg["train"]["patience"],
-            fp16=profile.get("fp16", cfg["train"]["fp16"]),
+            max_epochs=tcfg["max_epochs"],
+            patience=tcfg["patience"],
+            fp16=tcfg["fp16"],
         )
         ev = predict(model, build_loader(test, vocab, collate, bs, False), device)
         tf1 = macro_f1(ev["labels"], ev["preds"])
@@ -92,13 +101,16 @@ def main(argv: List[str] = None):
     ap = argparse.ArgumentParser(description="Train CARE-Fusion (Part D)")
     ap.add_argument("--config", default="configs/default.yaml")
     ap.add_argument("--out", default="artifacts/checkpoints")
-    ap.add_argument("--smoke", action="store_true", help="tiny 1-seed/1-epoch run on CPU")
+    ap.add_argument("--profile", choices=["full", "smoke", "pilot"], default="full",
+                    help="run profile: full (default), smoke (tiny CPU), pilot (full data, few epochs)")
+    ap.add_argument("--smoke", action="store_true", help="alias for --profile smoke")
     args = ap.parse_args(argv)
 
     cfg = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
-    profile = cfg.get("smoke", {}) if args.smoke else {}
+    name = "smoke" if args.smoke else args.profile
+    profile = cfg.get(name, {}) if name != "full" else {}
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"[train] device={device} smoke={args.smoke}")
+    print(f"[train] device={device} profile={name}")
     run(cfg, device, profile, Path(args.out))
 
 

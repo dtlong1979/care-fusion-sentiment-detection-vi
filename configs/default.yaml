@@ -62,6 +62,7 @@ train:                             # Part D / H
   lambda2: 0.3                     # L_cf weight      (grid: 0.1/0.3/0.5/1.0)
   focal_gamma: 2.0
   cb_beta: 0.9999                  # class-balanced beta (Cui et al.)
+  cf_detach: false                 # if true, counterfactual forward runs under no_grad (low VRAM)
 
 eval:
   primary_metric: macro_f1
@@ -77,3 +78,16 @@ smoke:
   fp16: false
   oof_folds: 2
   subset: 256                      # cap samples for a fast local run
+
+# Pilot profile: FULL data, 1 seed, few epochs — a cheap go/no-go signal on a
+# small local GPU (e.g. RTX 3050 6GB) before paying for A100. Relative signal
+# only (CARE vs B1), not a reported number.
+pilot:
+  seeds: [42]
+  max_epochs: 5
+  patience: 2
+  batch_size: 8
+  max_length: 128                  # most texts are short; halves VRAM vs 256
+  fp16: true
+  cf_detach: true                  # counterfactual forward under no_grad (saves VRAM)
+  oof_folds: 3

@@ -31,7 +31,7 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 
 from .data import CAREDataset, Collator, MarkerVocab, class_counts, load_jsonl
-from .engine import macro_f1, predict, set_seed, train_model
+from .engine import apply_profile, macro_f1, predict, set_seed, train_model
 from .losses import class_balanced_focal_loss
 from .model import TextEncoder
 
@@ -63,7 +63,7 @@ def make_loss_fn(class_counts_t, cfg):
     return loss_fn
 
 
-def _setup(cfg, profile):
+def _setup(cfg, subset=None):
     C = len(cfg["labels"])
     pdir = cfg["paths"]["processed_dir"]
     art = Path(cfg["paths"]["artifacts_dir"]); art.mkdir(parents=True, exist_ok=True)
@@ -74,9 +74,8 @@ def _setup(cfg, profile):
     train = load_jsonl(Path(pdir) / "train.jsonl")
     val = load_jsonl(Path(pdir) / "val.jsonl")
     test = load_jsonl(Path(pdir) / "test.jsonl")
-    if profile.get("subset"):
-        n = profile["subset"]
-        train, val, test = train[:n], val[: n // 4 or 1], test[: n // 4 or 1]
+    if subset:
+        train, val, test = train[:subset], val[: max(1, subset // 4)], test[: max(1, subset // 4)]
     return C, vocab, collate, train, val, test
 
 
@@ -89,37 +88,37 @@ def run_majority(cfg, train, val, test):
               f"(majority class = {cfg['labels'][maj]})")
 
 
-def run_b1(cfg, device, profile):
-    C, vocab, collate, train, val, test = _setup(cfg, profile)
-    bs = profile.get("batch_size", cfg["train"]["batch_size"])
+def run_b1(cfg, device, subset=None):
+    C, vocab, collate, train, val, test = _setup(cfg, subset)
+    tcfg = cfg["train"]
+    bs = tcfg["batch_size"]
     counts = class_counts(train, C)
-    set_seed(cfg["train"]["seeds"][0])
+    set_seed(tcfg["seeds"][0])
     model = TextOnlyModel(cfg)
     res = train_model(
         model,
         build_loader(train, vocab, collate, bs, True),
         build_loader(val, vocab, collate, bs, False),
         cfg, device, make_loss_fn(counts, cfg),
-        max_epochs=profile.get("max_epochs", cfg["train"]["max_epochs"]),
-        patience=cfg["train"]["patience"],
-        fp16=profile.get("fp16", cfg["train"]["fp16"]),
+        max_epochs=tcfg["max_epochs"], patience=tcfg["patience"], fp16=tcfg["fp16"],
     )
     ev = predict(model, build_loader(test, vocab, collate, bs, False), device)
     print(f"[B1] best val macro-F1={res['best_f1']:.4f} | test macro-F1={macro_f1(ev['labels'], ev['preds']):.4f}")
 
 
-def emit_oof(cfg, device, profile):
+def emit_oof(cfg, device, subset=None):
     """5-fold OOF: train B1 on K-1 folds, predict the held-out fold -> p_text."""
-    C, vocab, collate, train, val, test = _setup(cfg, profile)
-    bs = profile.get("batch_size", cfg["train"]["batch_size"])
-    n_folds = profile.get("oof_folds", cfg["resources"]["oof_folds"])
+    C, vocab, collate, train, val, test = _setup(cfg, subset)
+    tcfg = cfg["train"]
+    bs = tcfg["batch_size"]
+    n_folds = cfg["resources"]["oof_folds"]
     y = np.array([r["label_id"] for r in train])
-    skf = StratifiedKFold(n_splits=n_folds, shuffle=True, random_state=cfg["train"]["seeds"][0])
+    skf = StratifiedKFold(n_splits=n_folds, shuffle=True, random_state=tcfg["seeds"][0])
 
     p_text: Dict[str, list] = {}
     for fold, (tr_idx, ho_idx) in enumerate(skf.split(np.zeros(len(y)), y), 1):
         print(f"[OOF] fold {fold}/{n_folds}: train={len(tr_idx)} holdout={len(ho_idx)}")
-        set_seed(cfg["train"]["seeds"][0] + fold)
+        set_seed(tcfg["seeds"][0] + fold)
         tr = [train[i] for i in tr_idx]
         ho = [train[i] for i in ho_idx]
         counts = class_counts(tr, C)
@@ -129,9 +128,7 @@ def emit_oof(cfg, device, profile):
             build_loader(tr, vocab, collate, bs, True),
             build_loader(ho, vocab, collate, bs, False),
             cfg, device, make_loss_fn(counts, cfg),
-            max_epochs=profile.get("max_epochs", cfg["train"]["max_epochs"]),
-            patience=cfg["train"]["patience"],
-            fp16=profile.get("fp16", cfg["train"]["fp16"]),
+            max_epochs=tcfg["max_epochs"], patience=tcfg["patience"], fp16=tcfg["fp16"],
         )
         ev = predict(model, build_loader(ho, vocab, collate, bs, False), device)
         for r, prob in zip(ho, ev["probs"]):
@@ -147,21 +144,24 @@ def main(argv: List[str] = None):
     ap.add_argument("--config", default="configs/default.yaml")
     ap.add_argument("--model", choices=["B0", "B1"], default=None)
     ap.add_argument("--emit-oof", action="store_true")
-    ap.add_argument("--smoke", action="store_true", help="use the tiny smoke profile")
+    ap.add_argument("--profile", choices=["full", "smoke", "pilot"], default="full")
+    ap.add_argument("--smoke", action="store_true", help="alias for --profile smoke")
     args = ap.parse_args(argv)
 
     cfg = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
-    profile = cfg.get("smoke", {}) if args.smoke else {}
+    name = "smoke" if args.smoke else args.profile
+    raw_profile = cfg.get(name, {}) if name != "full" else {}
+    cfg, subset = apply_profile(cfg, raw_profile)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"[baselines] device={device} smoke={args.smoke}")
+    print(f"[baselines] device={device} profile={name}")
 
     if args.model == "B0":
-        _, _, _, train, val, test = _setup(cfg, profile)
+        _, _, _, train, val, test = _setup(cfg, subset)
         run_majority(cfg, train, val, test)
     elif args.model == "B1":
-        run_b1(cfg, device, profile)
+        run_b1(cfg, device, subset)
     if args.emit_oof:
-        emit_oof(cfg, device, profile)
+        emit_oof(cfg, device, subset)
 
 
 if __name__ == "__main__":
