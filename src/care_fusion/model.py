@@ -181,11 +181,12 @@ class GCNEnrich(nn.Module):
         self.enrich = nn.Linear(d, d)
 
     def node_embeddings(self) -> torch.Tensor:
-        x = self.q_proj(self.q_feat)
-        emo_mask = ~self.is_marker
-        if emo_mask.any():
-            x = x.clone()
-            x[emo_mask] = self.emo_emb(self.emo_idx[emo_mask].clamp_min(0))
+        # Blend marker- and emotion-node init without in-place ops so it stays
+        # autocast/autograd-safe (Embedding output is fp32, q_proj may be fp16).
+        x_marker = self.q_proj(self.q_feat)                  # [N, d]
+        x_emo = self.emo_emb(self.emo_idx.clamp_min(0))      # [N, d]
+        is_m = self.is_marker.unsqueeze(-1).to(x_marker.dtype)
+        x = is_m * x_marker + (1 - is_m) * x_emo.to(x_marker.dtype)
         h = F.gelu(self.A_hat @ self.gcn1(x))
         h = self.A_hat @ self.gcn2(h)                        # [N, d]
         return h
