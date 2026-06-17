@@ -20,17 +20,20 @@ POS, NEG = {"positive", "interest"}, {"sadness", "anger", "fear"}
 
 
 def main():
+    import yaml
     ap = argparse.ArgumentParser()
     ap.add_argument("--preds-dir", required=True)
+    ap.add_argument("--config", default="configs/default.yaml")
     args = ap.parse_args()
 
-    q = json.loads((ROOT / "artifacts/q_table.json").read_text(encoding="utf-8"))
+    cfg = yaml.safe_load((ROOT / args.config).read_text(encoding="utf-8"))
+    q = json.loads((ROOT / cfg["paths"]["artifacts_dir"] / "q_table.json").read_text(encoding="utf-8"))
     labels, qmap, gdist = q["labels"], q["q"], q["global_dist"]
     pos_i = [i for i, l in enumerate(labels) if l in POS]
     neg_i = [i for i, l in enumerate(labels) if l in NEG]
     pol = lambda i: "POS" if labels[i] in POS else "NEG" if labels[i] in NEG else "NEU"
 
-    test = [json.loads(l) for l in open(ROOT / "data/processed/test.jsonl", encoding="utf-8")]
+    test = [json.loads(l) for l in open(ROOT / cfg["paths"]["processed_dir"] / "test.jsonl", encoding="utf-8")]
 
     def emoji_pol(rec):
         ms = list(dict.fromkeys(rec["marker_seq"]))
