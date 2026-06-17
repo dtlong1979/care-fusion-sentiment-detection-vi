@@ -49,19 +49,24 @@ class Coll:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--Ks", default="0,3")
+    ap.add_argument("--config", default="configs/default.yaml")
+    ap.add_argument("--seeds", default="42")
+    ap.add_argument("--max-length", type=int, default=128)
     args = ap.parse_args()
-    cfg = yaml.safe_load((ROOT / "configs/default.yaml").read_text(encoding="utf-8"))
+    cfg = yaml.safe_load((ROOT / args.config).read_text(encoding="utf-8"))
     C = len(cfg["labels"])
+    pdir = ROOT / cfg["paths"]["processed_dir"]
+    art = ROOT / cfg["paths"]["artifacts_dir"]
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    tr = load_jsonl(ROOT / "data/processed/train.jsonl")
-    va = load_jsonl(ROOT / "data/processed/val.jsonl")
-    te = load_jsonl(ROOT / "data/processed/test.jsonl")
+    tr = load_jsonl(pdir / "train.jsonl")
+    va = load_jsonl(pdir / "val.jsonl")
+    te = load_jsonl(pdir / "test.jsonl")
     tok = AutoTokenizer.from_pretrained(cfg["preprocess"]["phobert_name"])
-    coll = Coll(tok, 128)
+    coll = Coll(tok, args.max_length)
     counts = class_counts(tr, C)
 
     # slices
-    q = json.loads((ROOT / "artifacts/q_table.json").read_text(encoding="utf-8"))
+    q = json.loads((art / "q_table.json").read_text(encoding="utf-8"))
     qmap, gdist = q["q"], q["global_dist"]
     pos_i = [i for i, l in enumerate(LABELS) if l in POS]; neg_i = [i for i, l in enumerate(LABELS) if l in NEG]
     pol = lambda lab: "POS" if lab in POS else "NEG" if lab in NEG else "NEU"

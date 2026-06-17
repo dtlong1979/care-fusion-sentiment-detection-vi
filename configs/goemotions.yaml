@@ -1,0 +1,110 @@
+paths:
+  raw_csv: data/raw/goemotions.csv
+  processed_dir: data/processed_goemotions
+  artifacts_dir: artifacts_goemotions
+  vncorenlp_dir: vncorenlp
+data:
+  text_col: text
+  label_col: emotion_group
+  split_col: source_split
+  id_col: source_id
+  type_col: emoji_type
+  csv_encoding: utf-8-sig
+  keep_original_split: true
+labels:
+- positive
+- sadness
+- anger
+- fear
+- interest
+- neutral
+preprocess:
+  apply_nfc: true
+  collapse_elongation: true
+  max_length: 256
+  phobert_name: xlm-roberta-base
+  segment: false
+resources:
+  laplace_alpha: 1.0
+  low_freq_tau: 5
+  oof_folds: 5
+  delta_low_pct: 33
+  delta_high_pct: 66
+  ppmi_min_cooccur: 1
+model:
+  d_t: 768
+  d_e: 128
+  d: 256
+  cross_attn_heads: 4
+  gcn_layers: 2
+train:
+  seeds:
+  - 13
+  - 42
+  - 123
+  - 2024
+  - 7
+  lr_phobert: 2.0e-05
+  lr_head: 0.001
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  grad_clip: 1.0
+  batch_size: 16
+  max_epochs: 20
+  patience: 3
+  fp16: true
+  lambda1: 0.3
+  lambda2: 0.3
+  focal_gamma: 2.0
+  cb_beta: 0.9999
+  cf_detach: false
+  aux_text_weight: 0.3
+eval:
+  primary_metric: macro_f1
+  report_5class_macro: true
+  bootstrap_resamples: 1000
+  human_verify_n: 300
+smoke:
+  seeds:
+  - 42
+  max_epochs: 1
+  batch_size: 8
+  fp16: false
+  oof_folds: 2
+  subset: 256
+pilot:
+  seeds:
+  - 42
+  max_epochs: 5
+  patience: 2
+  batch_size: 8
+  max_length: 128
+  fp16: true
+  cf_detach: true
+  oof_folds: 3
+pilot3:
+  seeds:
+  - 13
+  - 42
+  - 123
+  max_epochs: 8
+  patience: 3
+  batch_size: 8
+  max_length: 128
+  fp16: true
+  cf_detach: true
+  oof_folds: 3
+pilot5:
+  seeds:
+  - 13
+  - 42
+  - 123
+  - 2024
+  - 7
+  max_epochs: 6
+  patience: 2
+  batch_size: 8
+  max_length: 128
+  fp16: true
+  cf_detach: true
+  oof_folds: 3

@@ -28,3 +28,6 @@ Thumbs.db
 # GoEmotions raw CSVs (large, downloadable)
 data/goemotions_raw/
 data/vsmec_raw/
+data/processed_*/
+artifacts_*/
+data/vsmec_raw/

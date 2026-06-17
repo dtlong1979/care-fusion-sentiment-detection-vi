@@ -240,14 +240,14 @@ def main(argv: Optional[List[str]] = None) -> None:
             json.dumps(q_table, ensure_ascii=False, indent=2), encoding="utf-8")
         n_low = sum(q_table["low_freq"].values())
         print(f"[B1] q_table: {len(q_table['q'])} markers "
-              f"({n_low} low_freq back-off) -> artifacts/q_table.json")
+              f"({n_low} low_freq back-off) -> {art}/q_table.json")
 
     if "pmi" in steps:
         graph = build_pmi_graph(train, labels, rcfg["ppmi_min_cooccur"])
         (art / "pmi_graph.json").write_text(
             json.dumps(graph, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"[B3] pmi_graph: {len(graph['nodes'])} nodes, "
-              f"{len(graph['edges'])} edges -> artifacts/pmi_graph.json")
+              f"{len(graph['edges'])} edges -> {art}/pmi_graph.json")
 
     if "weak" in steps:
         if not args.ptext:
