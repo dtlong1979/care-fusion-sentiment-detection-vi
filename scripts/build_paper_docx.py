@@ -314,9 +314,26 @@ p(("Hai kết luận: ", "b"), "(1) chỉ với TF-IDF + nhân bản emoji đã 
   "baseline và CARE-Fusion (~0.48–0.51, trong khoảng nhiễu), xác nhận phương án đơn giản cạnh tranh "
   "được với fusion phức tạp (cần đa seed để khẳng định chắc).")
 
+h2("6.9 Tổng quát hóa cross-lingual (GoEmotions, tiếng Anh)")
+p("Để kiểm tính tổng quát, chúng tôi lặp lại trên GoEmotions (Demszky và cộng sự, 2020) — bộ "
+  "cảm xúc tiếng Anh do người gán, CÙNG taxonomy 27 nhãn, dùng đúng quy tắc ánh xạ 27→6 và ưu tiên. "
+  "GoEmotions thu từ Reddit nên thưa emoji: chỉ 2.524/58.011 (4,4%) bình luận có emoji/emoticon; sau "
+  "lọc còn 2.519 mẫu. Lưu ý: dữ liệu cảm xúc-emoji *quy mô lớn & nhãn sạch* gần như không tồn tại — "
+  "các bộ rất lớn (DeepMoji, Twemoji, Sentiment140) đều gán nhãn BẰNG chính emoji (vòng lặp), nên "
+  "không dùng được cho câu hỏi “emoji thêm thông tin gì”. GoEmotions là lựa chọn sạch nhất.")
+p("Bảng 7. Emoji-amplified TF-IDF trên GoEmotions (EN) — lặp lại phát hiện.", ("", "i"))
+table(["K", "GoEmotions (EN) test macro-F1", "đối chiếu ViGoEmotions (VN)"],
+      [["0 (chỉ text)", "0.392", "0.410"],
+       ["3 (emoji-amplified)", "0.443  (+0.051)", "0.493  (+0.083)"]])
+p(("Kết luận: ", "b"), "lợi ích của emoji-as-amplified-text TỔNG QUÁT qua ngôn ngữ — cùng chiều trên "
+  "cả tiếng Việt (+0.08) và tiếng Anh (+0.05). Điều này củng cố rằng phát hiện không phải đặc thù một "
+  "bộ dữ liệu. (Chạy transformer trên GoEmotions cần backbone EN/đa ngữ; ở đây dùng TF-IDF char-ngram "
+  "vốn xuyên ngôn ngữ.)")
+
 # ============================== 7. LIMITATIONS ==============================
 h1("7. Hạn chế")
-b("Một dataset / một ngôn ngữ → cần dataset thứ 2 (vd UIT-VSMEC) để khẳng định tổng quát.")
+b("Đã có 2 ngôn ngữ (VN ViGoEmotions + EN GoEmotions) ở mức TF-IDF; cross-lingual mức transformer "
+  "và dataset social-media giàu emoji hơn (vd UIT-VSMEC tiếng Việt, hoặc Twitter/YouTube) là việc tiếp theo.")
 b("Chỉ văn bản có emoji → không đại diện toàn bộ văn bản cảm xúc tiếng Việt (phạm vi có chủ đích).")
 b("neutral cực thưa (val 4 / test 6) → báo cáo riêng kèm cảnh báo low-power.")
 b("Tầng conflict tự động (proxy δ) chưa kiểm chứng bằng người (~300 mẫu) như đề xuất F2.")
