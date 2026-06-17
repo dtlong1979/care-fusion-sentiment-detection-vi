@@ -27,3 +27,4 @@ Thumbs.db
 
 # GoEmotions raw CSVs (large, downloadable)
 data/goemotions_raw/
+data/vsmec_raw/

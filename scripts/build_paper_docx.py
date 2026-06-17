@@ -314,21 +314,24 @@ p(("Hai kết luận: ", "b"), "(1) chỉ với TF-IDF + nhân bản emoji đã 
   "baseline và CARE-Fusion (~0.48–0.51, trong khoảng nhiễu), xác nhận phương án đơn giản cạnh tranh "
   "được với fusion phức tạp (cần đa seed để khẳng định chắc).")
 
-h2("6.9 Tổng quát hóa cross-lingual (GoEmotions, tiếng Anh)")
-p("Để kiểm tính tổng quát, chúng tôi lặp lại trên GoEmotions (Demszky và cộng sự, 2020) — bộ "
-  "cảm xúc tiếng Anh do người gán, CÙNG taxonomy 27 nhãn, dùng đúng quy tắc ánh xạ 27→6 và ưu tiên. "
-  "GoEmotions thu từ Reddit nên thưa emoji: chỉ 2.524/58.011 (4,4%) bình luận có emoji/emoticon; sau "
-  "lọc còn 2.519 mẫu. Lưu ý: dữ liệu cảm xúc-emoji *quy mô lớn & nhãn sạch* gần như không tồn tại — "
-  "các bộ rất lớn (DeepMoji, Twemoji, Sentiment140) đều gán nhãn BẰNG chính emoji (vòng lặp), nên "
-  "không dùng được cho câu hỏi “emoji thêm thông tin gì”. GoEmotions là lựa chọn sạch nhất.")
-p("Bảng 7. Emoji-amplified TF-IDF trên GoEmotions (EN) — lặp lại phát hiện.", ("", "i"))
-table(["K", "GoEmotions (EN) test macro-F1", "đối chiếu ViGoEmotions (VN)"],
-      [["0 (chỉ text)", "0.392", "0.410"],
-       ["3 (emoji-amplified)", "0.443  (+0.051)", "0.493  (+0.083)"]])
-p(("Kết luận: ", "b"), "lợi ích của emoji-as-amplified-text TỔNG QUÁT qua ngôn ngữ — cùng chiều trên "
-  "cả tiếng Việt (+0.08) và tiếng Anh (+0.05). Điều này củng cố rằng phát hiện không phải đặc thù một "
-  "bộ dữ liệu. (Chạy transformer trên GoEmotions cần backbone EN/đa ngữ; ở đây dùng TF-IDF char-ngram "
-  "vốn xuyên ngôn ngữ.)")
+h2("6.9 Tổng quát hóa đa-dataset, đa-ngôn-ngữ")
+p("Chúng tôi kiểm tính tổng quát của hai phát hiện cốt lõi (emoji-amplification GIÚP; emoji HAI "
+  "LƯỠI) trên hai bộ dữ liệu bổ sung, dùng cùng quy trình (giữ mẫu có emoji, emoji-amplified TF-IDF "
+  "với char n-gram vốn xuyên ngôn ngữ):")
+b("UIT-VSMEC (Vietnamese, Facebook, người gán, 7 cảm xúc) — giàu emoji: 2.367/6.927 (34,2%).")
+b("GoEmotions (English, Reddit, người gán, cùng taxonomy 27→6) — thưa emoji: 2.524/58.011 (4,4%).")
+p("Lưu ý: dữ liệu cảm xúc-emoji *quy mô lớn & nhãn sạch* gần như không tồn tại — các bộ rất lớn "
+  "(DeepMoji, Twemoji, Sentiment140) gán nhãn BẰNG chính emoji (vòng lặp) nên không trả lời được câu "
+  "hỏi “emoji thêm thông tin gì”. Reddit lại thưa emoji. Mạng xã hội kiểu Facebook/Twitter/YouTube "
+  "giàu emoji hơn nhiều (UIT-VSMEC 34%).")
+p("Bảng 7. Tổng quát hóa: emoji-amplified TF-IDF qua 3 bộ dữ liệu / 2 ngôn ngữ.", ("", "i"))
+table(["Dataset", "Ngôn ngữ", "% emoji", "macro-F1: text → +emoji", "Hai lưỡi?"],
+      [["ViGoEmotions", "VN", "(đã lọc)", "0.410 → 0.493  (+0.08)", "Có"],
+       ["UIT-VSMEC", "VN", "34,2%", "0.408 → 0.509  (+0.10)", "Có"],
+       ["GoEmotions", "EN", "4,4%", "0.392 → 0.443  (+0.05)", "(overall)"]])
+p(("Kết luận: ", "b"), "cả hai phát hiện TỔNG QUÁT — emoji-amplification giúp ở cả 3 bộ (Δ +0.05…+0.10), "
+  "và hiệu ứng hai lưỡi (đồng thuận↑, mỉa mai →/↓ khi tăng K) tái lập trên cả hai bộ tiếng Việt. "
+  "Đây là bằng chứng generalization vững (đa-dataset, đa-ngôn-ngữ), không đặc thù một corpus.")
 
 # ============================== 7. LIMITATIONS ==============================
 h1("7. Hạn chế")
