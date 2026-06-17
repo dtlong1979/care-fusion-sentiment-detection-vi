@@ -335,8 +335,11 @@ p(("Kết luận: ", "b"), "cả hai phát hiện TỔNG QUÁT — emoji-amplifi
 
 # ============================== 7. LIMITATIONS ==============================
 h1("7. Hạn chế")
-b("Đã có 2 ngôn ngữ (VN ViGoEmotions + EN GoEmotions) ở mức TF-IDF; cross-lingual mức transformer "
-  "và dataset social-media giàu emoji hơn (vd UIT-VSMEC tiếng Việt, hoặc Twitter/YouTube) là việc tiếp theo.")
+b("Đánh giá trên 3 bộ / 2 ngôn ngữ (ViGoEmotions, UIT-VSMEC, GoEmotions), quy mô vừa phải (mỗi bộ "
+  "vài nghìn mẫu có emoji). Mở rộng quy mô bị chặn bởi MỘT KHOẢNG TRỐNG GÁN NHÃN: các kho giàu emoji "
+  "quy mô lớn hoặc KHÔNG có nhãn cảm xúc (vd YTCommentVerse, ~32 triệu comment YouTube, >50 ngôn ngữ, "
+  "~23% có emoji — chỉ có nhãn chủ đề video, không có cảm xúc), hoặc gán nhãn BẰNG chính emoji (vòng "
+  "lặp). Việc tạo nhãn cảm xúc quy mô lớn KHÔNG dựa trên emoji là hướng tương lai.")
 b("Chỉ văn bản có emoji → không đại diện toàn bộ văn bản cảm xúc tiếng Việt (phạm vi có chủ đích).")
 b("neutral cực thưa (val 4 / test 6) → báo cáo riêng kèm cảnh báo low-power.")
 b("Tầng conflict tự động (proxy δ) chưa kiểm chứng bằng người (~300 mẫu) như đề xuất F2.")
@@ -395,6 +398,8 @@ refs = [
     "Tran Thi Dung và cộng sự (2024). Nhận diện cảm xúc tiếng Việt kèm emoji. HNUE J. Sci. [cần xác minh]",
     "Cui, Y. và cộng sự (2019). Class-Balanced Loss Based on Effective Number of Samples. CVPR.",
     "Demszky, D. và cộng sự (2020). GoEmotions. ACL.",
+    "Dutta, H. S., Khan, B. (2025). YTCommentVerse: A Multi-Category Multi-Lingual YouTube "
+    "Comment Corpus. CIKM, tr. 6351-6355. DOI 10.5281/zenodo.15678816.",
 ]
 for ref in refs:
     doc.add_paragraph(ref, style="List Number")
