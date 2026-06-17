@@ -1,0 +1,439 @@
+﻿split,id,margin,direction,emoji_pol,gold,gold_pol,markers,text
+train,tik020732,0.9327,emoji_NEG->gold_POS,NEG,interest,POS,:(,@linhnhilato m có giống t ko :()
+val,2689,0.9327,emoji_NEG->gold_POS,NEG,positive,POS,:(,"thằng nào vẽ đẹp , vẽ giúp tao tấm ảnh per phòng hờ cúp điện không có tài liệu quay tay :("
+train,2573,0.9198,emoji_NEG->gold_POS,NEG,positive,POS,:((,đẹp trai v :((((
+train,3459,0.9198,emoji_NEG->gold_POS,NEG,positive,POS,:((,ơ hoá ra là em à :(( lâu quá không gặp
+train,4937,0.9198,emoji_NEG->gold_POS,NEG,positive,POS,:((,còn người yêu tao : một hơi có một anh đẹp trai bay lơ lửng rồi ôm lấy em khi em tắm :(((
+train,you002686,0.9182,emoji_NEG->gold_POS,NEG,positive,POS,😞,Ôi dồi ơiiii như hạn hán gặp mưa vậy Giang ưiiii<br>Đúng cái em cần ngay lúc này 😞
+train,4458,0.9182,emoji_NEG->gold_POS,NEG,positive,POS,😞,hmm hãy tưởng tượng nó là một chú gián xink xắm xoè cánh thiên thần bay đến ... 😞
+train,you000249,0.9058,emoji_NEG->gold_POS,NEG,interest,POS,😢 😢,"Em có thể thắc mắc một chút đc ko ạ: phía nam VN bây giờ trước đây là đất nc chăm pa, vậy bằng cách nào nó lại trở thành lãnh thổ của nc ta vậy. Có người nói vs e rằng là ng việt xâm lược chăm pa nhg lại nói là khai hoang<br>Mọi người giải đáp thắc mắc giúp e vs ạ😢😢"
+train,you000871,0.9058,emoji_NEG->gold_POS,NEG,interest,POS,😢 😢,"Huhu anh ơi anh ra podca đi ạ, e k nghe k ngủ đc 😢😢"
+train,tik001514,0.9058,emoji_NEG->gold_POS,NEG,positive,POS,😢 😢,Mong mạnh thường quân giúp đỡ cho người dân vùng núi nghèo khổ đáng thương à😢😢
+train,you001136,0.9058,emoji_NEG->gold_POS,NEG,interest,POS,😢,Xin cách cai thuốc lá Thầy ơi 😢
+test,5204,0.9058,emoji_NEG->gold_POS,NEG,positive,POS,😢,sư phụ giả vờ ngã để thử lòng các đồ đệ và cái kết ngã sấp mặt luôn 😢
+train,2280,0.8929,emoji_NEG->gold_POS,NEG,interest,POS,😭,per thật sự là có cách nào dắt bé đi theo được không ? 😭
+train,28545,0.8929,emoji_NEG->gold_POS,NEG,positive,POS,😭,ổng đúng hay cười luôn lúc nào cũng cười lun í 😭 tr ơi moonbin của tôiiiiiii
+train,tik023946,0.8929,emoji_NEG->gold_POS,NEG,positive,POS,😭,@𝙅𝙄𝘾𝙊♡  giỏi quá 😭
+val,1777,0.8929,emoji_NEG->gold_POS,NEG,positive,POS,😭,"xem đi xem lại không chán , best của best 😭"
+train,6196,0.8571,emoji_NEG->gold_POS,NEG,positive,POS,😔,con nai vàng ngơ ngác 😔
+train,tik014108,0.8571,emoji_NEG->gold_POS,NEG,positive,POS,😔,cho mình biết c đọc trong video là ai đc k ạ? mình thích giọng điệu của c ấy 😔
+train,2318,0.8571,emoji_NEG->gold_POS,NEG,positive,POS,😔 😔 😔,cứ thấy nó là ăn không còn xác thì lấy gì chúng kịp phá . nhìn thèm ứ chịu được 😔😔😔
+train,4490,0.8571,emoji_NEG->gold_POS,NEG,interest,POS,😔,tìm đối tác 😔
+train,6721,0.8571,emoji_NEG->gold_POS,NEG,positive,POS,😔,con mong cụ cuộc sống sẽ tốt hơn 😔
+train,tik007402,0.8571,emoji_NEG->gold_POS,NEG,interest,POS,😔,mình ước gì cx đc bà nội tiền 1 lần 😔
+train,red000048,0.8511,emoji_NEG->gold_POS,NEG,positive,POS,😥,"Con trai con gái, ng trẻ ng lớn nào mà chả như nhau, đều có quyền bộc lộ cảm xúc của mình mà. Chị thấy việc khóc ra nó còn tốt hon so với việc cứ ôm những cái uất ức trong lòng í. Ai hiểu đc thì ngta san sẻ với mình, ko hiểu đc thì thôi em ạ. Làm sao em thấy thoải mái trước đã, sống theo ý kiến của ng khác mệt mỏi lắm 😥"
+train,27280,0.8283,emoji_NEG->gold_POS,NEG,positive,POS,🥲,"Mardoll Tee Aitch sao vậy, tôi lại thích nghe tiếng tụng kinh lắm cảm giác nhẹ nhàng và yên bình(?), vì thế nên tôi thích đi chùa như kiểu ngăn cách với mọi áp lực bên ngoài í 🥲"
+train,tik011646,0.8283,emoji_NEG->gold_POS,NEG,positive,POS,🥲,ko tức giận nhất thời thì tốt r 🥲
+train,21535,0.8283,emoji_NEG->gold_POS,NEG,positive,POS,🥲,Phương Nghii hồi đó xem chị ơi đi hàn quốc thích paris baguette lắm🥲
+train,17270,0.8283,emoji_NEG->gold_POS,NEG,positive,POS,🥲,Quynh Annh áp lực quá thì chạy về vs a🥲
+train,28063,0.8283,emoji_NEG->gold_POS,NEG,positive,POS,🥲,"Hội Vũ úi
+Câu nói này được, xịn quá 🥲"
+val,19686,0.8283,emoji_NEG->gold_POS,NEG,interest,POS,🥲,Phan Hữu Lợi chú grap có con zai ko ạ🥲
+val,you002596,0.8148,emoji_POS->gold_NEG,POS,fear,NEG,😍,"Những ngày cuối cùng của lớp 12 và kì thi THPT Quốc gia đang đến dần, căng thẳng áp lực, có suy nghĩ tiêu cực,... em cần những video như thế này 😍"
+train,you002276,0.8,emoji_POS->gold_NEG,POS,sadness,NEG,❤,"Bố mình là một người tiêu cực,mỗi khi mà mình quyết tâm làm một cái gì đó, bố mình luôn là người khiến mình phải phân vân lo lắng rằng mình sẽ chẳng thể làm được, nghi ngờ về giá trị con người mình và cảm thấy mình thật vô dụng.Có những lời khuyên của chị Giang giúp mình có thể vượt qua. Yêu chị❤"
+train,you002306,0.8,emoji_POS->gold_NEG,POS,sadness,NEG,❤ ❤,"Thực sự cảm ơn chị vì đã làm ra cái vid này , em vừa mới biết điểm thi của môn toán môn em học không giỏi và điểm cũng tệ...em đang rất buồn và lo lắng hầu như toàn snghi tiêu cực, em cảm ơn chị vì đã giúp em có một snghi khác hơn và tích cực hơn❤❤"
+train,tik011601,0.8,emoji_POS->gold_NEG,POS,sadness,NEG,❤,hối hận cx đã muộn rồi gáng bước tiếp thôi❤
+test,you000970,0.8,emoji_POS->gold_NEG,POS,anger,NEG,❤,Mọi video của anh rất hayyyyy thật sự hay lun á nhưng mà em góp ý xíu là mình chèn ít qc thôi ạ kiểu đang tập trung mà gặp qc khiến em bị mất tập trung vô video của anh á ❤
+train,18200,0.7786,emoji_POS->gold_NEG,POS,sadness,NEG,❤️,Xin chia buồn cùng gia đình ạ. Mong linh hồn e sớm siêu thoát ❤️
+train,you001917,0.7786,emoji_POS->gold_NEG,POS,fear,NEG,❤️ ❤️ ❤️,"Cảm ơn c đã có video hữu ích này, mấy bữa nay e quá là áp lực và tiêu cực về công việc, mặc dù e là người luôn vui vẻ nhưng mà cũng không tránh được việc thường xuyên bị áp lực ❤️❤️❤️"
+train,16670,0.7786,emoji_POS->gold_NEG,POS,sadness,NEG,❤️ ❤️ ❤️,"Thôi ráng cực xíu cho mẹ mau khỏe. Ráng học mốt thành tài, chứ chạy ba gác như chú vất vả lắm á! ❤️❤️❤️ nhớ ba mẹ quá"
+train,you001872,0.7786,emoji_POS->gold_NEG,POS,sadness,NEG,❤️,"Hôm nay là ngày mình tiêu cực mệt mỏi kinh khủng. Nhấc cây viết lên suy nghĩ để làm bài tập vượt qua mấy tháng cuối để thi đh, mệt tới mức ai hỏi gì cũng k muốn trả lời mình đã khóc rất nhìu cho đến khi xem hết video này. Cảm ơn chị Giang ❤️"
+train,you002809,0.7786,emoji_POS->gold_NEG,POS,fear,NEG,❤️,E đang loay hoay trong một đống nỗi lo sợ. Yêu c❤️
+train,4096,0.7786,emoji_POS->gold_NEG,POS,sadness,NEG,❤️,ước gì ba còn sống để làm điều đó với má . nhớ ba ❤️
+train,16066,0.7786,emoji_POS->gold_NEG,POS,sadness,NEG,❤️,Cảm ơn chị đã giúp chú. ❤️ chú đúng là người đáng thương
+train,31030,0.7786,emoji_POS->gold_NEG,POS,sadness,NEG,❤️,"Vẫn thương bác tài ô tô, hi sinh cả cái xe ❤️"
+test,24824,0.7786,emoji_POS->gold_NEG,POS,sadness,NEG,❤️,❤️rớt nước mắt
+val,2233,0.7308,emoji_NEG->gold_POS,NEG,positive,POS,😪,đợi đến ngày họp lớp đi 😪
+train,5328,0.72,emoji_NEG->gold_POS,NEG,interest,POS,🙁 🙁 🙁,sao đúng bài mày kết vậy 🙁🙁🙁
+train,4378,0.7083,emoji_NEG->gold_POS,NEG,positive,POS,😓,tao thề . nhìn bạn ấy xong tao muốn rụng mấy quả trứng luôn 😓
+train,tik022511,0.7083,emoji_NEG->gold_POS,NEG,interest,POS,😬,tại ko bt nói j 😬
+val,2324,0.7083,emoji_NEG->gold_POS,NEG,positive,POS,😬,mặt con mèo giải trí dữ 😬
+train,tik007404,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰 🥰,"ước gì nội cũng thương tui như thế này, từ nhỏ tới giờ tui chỉ có ngoại thương tui thôi🥰🥰"
+train,tik000288,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,sorry bà nha áo tui hơi giãn á🥰
+train,you002100,0.7053,emoji_POS->gold_NEG,POS,fear,NEG,🥰,"e vừa thi giữa kì và đối với em điểm số là một cái gì cực kì quan trọng nên khi làm k được như í mình em cảm thấy tồi tệ cực kì, tình cờ xem được video này của chị e thấy yên bình hẳn 🥰"
+train,tik011941,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,hối hận nhất đời này là e bỏ lỡ mất anh🥰
+train,tik021618,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,t sợ nói ra nó mắc cỡ 🥰
+train,tik011494,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,"hối hận vì bỏ đoạn tình cảm này, và hiện tại sắm phải nhìn anh ấy đi lên lễ đường cùng cô gái khác, nm chắc chắn tôi không hối hận vì bỏ anh để chọn sự nghiệp.🥰"
+train,tik024162,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,có 2 khứa nước ngoài đang ngồi thấy thế ngại quá đứng dậy liền 🥰
+train,tik023358,0.7053,emoji_POS->gold_NEG,POS,anger,NEG,🥰,Gạo Thái Lan mới là hàng đầu thế giới nha Việt Nam chỉ đứng sau Thái Lan thôi 🥰
+train,tik018489,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,mặc gì lên người vẫn không qua mặc cảm 🥰
+train,you000600,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,"Vì anh nói rất thích đọc comment và luôn đọc hết comment nên em xin phép comment để nói rằng kênh youtube của anh quá là tuyệt vời lun ạ. Em xem video đầu tiên của anh khi học năm nhất để viết essay về financial crisis 2007-08. Giờ năm cuối sắp ra trường, đang apply công việc và gặp nhiều thất bại, trải qua nhiều sự thất vọng huhu nên khi xem video nè em thấy được motivate lắm ạ. Cảm ơn anh vì bài học về sự kiên trì, dám nghĩ dám làm ạ. Em chúc anh luôn hạnh phúc vui vẻ để ra nhiều video nha 🥰"
+train,tik003465,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,"Nhìn mà xót , nghỉ lại mình z mà còn hơn nhiều hoàn cảnh … 🥰"
+train,you001738,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,"Cám ơn c . E mới phát hiện ra bệnh ngày hôm qua  và e cũng khá tiêu cực . E cũng nghĩ đến kết quả xấu nhất , rồi cũng khóc. Nhưng đúng như c nói, e đã dậy, ra ngoài ăn uống, chơi cùng con e , nằm trong vòng tay ck e ngủ 1 giấc. Sáng nay e vẫn bắt đầu 1 ngày mới bằng cách viết ra những gì mình phải làm để điều trị bệnh của mình. Và e đã hoàn thành mọi việc phải làm hôm nay. Tối nay chỉ còn việc sắp xếp cữ thuốc mai mình phải uống và những công việc mai mình phải làm . Cám ơn c nhiều 🥰"
+train,tik015046,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,nhục nữa 🥰
+train,tik000409,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,Sory bà nha áo tui hơi giản á🥰
+train,tik011652,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,giá như không nghe lời người khác không phải như vậy rồi🥰
+train,16767,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰 🥰 🥰,"Mình ko thể nào quên đc cái chết của George O’Malley. Mọi người nên xem Grey’s Anatomy nhaaaa, xuất sắc 🥰🥰🥰"
+train,tik012946,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,Cái giá của trưởng thành nó đắt quá. Tiền tiền tiền gì cũng tiền ta tự hỏi đồng tiền nó làm ta khổ vạy sao🥰
+train,tik011641,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,Nếu biết trước “giá như” thì con ng ta đã kh khổ rồi 🥰
+val,tik002277,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰 🥰 🥰,thấy vợ chồng anh này mình ko giám xài tiền luôn thấy mà đức ruộc cô chú anh chị ôi mình nên sài tiền đừng phun phi khi ko cần thiết 🥰🥰🥰
+val,tik020862,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,t là vừa ngại vừa kh bt kh có j để nói với lại t bị căng thẳng🥰
+val,tik022765,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,nhiều khi sợ quăng miếng lãng xẹt thì cuê nên thôi nín nào bét phen pho re vờ thật sự t ms nói🥰
+val,tik000232,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,"sorry con nha, cô hơi nhớ nghề á 🥰"
+test,tik021241,0.7053,emoji_POS->gold_NEG,POS,sadness,NEG,🥰,"Giao tiếp kém , không giỏi ăn nói , dễ mất lòng 🥰"
+test,tik003382,0.6903,emoji_NEG->gold_POS,NEG,interest,POS,😳 🥺 🥺 😭 😭 😭,😳trời ơi 🥺🥺😭😭😭
+train,5921,0.6875,emoji_NEG->gold_POS,NEG,positive,POS,😏 😏 😏,chuẩn 😏😏😏
+val,29730,0.6875,emoji_NEG->gold_POS,NEG,positive,POS,😏,Hồng Phú t thì k có điều kiện đi nước ngoài nhưng xem youtube và nhiều đoạn phim ngắn thấy nước đức xe mẹc chạy taxi đầy đường😏
+train,tik011626,0.6843,emoji_POS->gold_NEG,POS,sadness,NEG,👍 🥰,"Nhiều người nhắc tôi đi làm đừng có hiền, hèn nhát như vậy, để đến cuối cùng bị chèn ép đến nghỉ việc, nhưng tôi biết làm sao? Tôi k nói được, chỉ nghĩ im lặng r nó sẽ qua, chỉ nghĩ gia đình kì vọng mình chứ ngta k kì vọng mình, nói chung là sau tất cả, nhịn đôi lúc không phải là tốt👍🥰"
+train,19690,0.6633,emoji_POS->gold_NEG,POS,anger,NEG,👍 👍 👍 👍,"Nguyen Huu Tai Ổng chụp cái, ông té luôn, nhìn cái quả cuối rất cảm động,trong khi quá trời xe đậu xem mà không ai túm lấy ông trộm.👍👍👍👍"
+train,20861,0.6633,emoji_POS->gold_NEG,POS,anger,NEG,👍,"T xem mà t cũng khó chịu thay
+Đồng quan điểm với anh CA ! 👍"
+train,tik021984,0.6633,emoji_POS->gold_NEG,POS,fear,NEG,👍,sợ nói ra quê 👍
+train,tik021146,0.6633,emoji_POS->gold_NEG,POS,sadness,NEG,👍,t k có bạn👍
+train,tik021291,0.6633,emoji_POS->gold_NEG,POS,sadness,NEG,👍,"t ko ngại nói, nhưng lời t nói toàn làm t mất bạn , nên hóa hướng nội luôn cho lành👍"
+val,tik015909,0.6633,emoji_POS->gold_NEG,POS,anger,NEG,👍,vậy sao thay vì than phiền nhan sắc không chăm sóc lại bản thân đi 👍
+val,tik020873,0.6633,emoji_POS->gold_NEG,POS,anger,NEG,👍,Thằng nào còn nhận là bạn thằng đó chưa thân 👍
+train,tik006506,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺,"nhìn lại mình thật may mắn, tuổi thơ được trọn vẹn bên nội càng lớn càng ngộ ra phải biết trân trọng nhiều hơn nữa 🥺"
+train,tik001627,0.65,emoji_NEG->gold_POS,NEG,interest,POS,🥺,Hồi lúc chưa đi làm mình cũng sài tiền phung phí lắm.từ lúc ra tự buôn bán mua gì cũng suy nghĩ kỉ 🥺
+train,tik014705,0.65,emoji_NEG->gold_POS,NEG,interest,POS,🥺,ai hộ tớ vd ghim đk ạ🥺(có trả)
+train,tik015647,0.65,emoji_NEG->gold_POS,NEG,interest,POS,🥺,Đôi khi mk nên tự hào về nhan sắc của bth 1 chút 🥺
+train,tik013398,0.65,emoji_NEG->gold_POS,NEG,interest,POS,🥺,mấy anh chị ngoài 30 trả lời có đúng như vậy ko ạ🥺
+train,14174,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺,Văn Phúc muốn đi coi🥺
+train,tik011950,0.65,emoji_NEG->gold_POS,NEG,interest,POS,🥺,Lấy ck ạ🥺
+train,you001672,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺 🥺 🥺,Em đã từng quá nhiều cảm giác này và em đã vào bếp và định kết liễu đời mình luôn.Nhưng khi em xem clip chị thì em mới đỡ dc🥺🥺🥺
+train,16603,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺 🥺,Tan chảy 🥺🥺
+train,tik002333,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺 🥺 🥺,xưa mình cũng đã từng như ac giờ nhìn lại mình còn mai mắn hơn ac a ôi e có quần áo củ muốn gửi cho ci thì phải làm sao ạ..🥺🥺🥺
+train,tik013612,0.65,emoji_NEG->gold_POS,NEG,interest,POS,🥺,bật lưu dc ko ạ 🥺
+train,tik017556,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺,tự tin lên mấy bà ui🥺
+train,tik023994,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺,Chả hiểu sao cứ nghe Quốc ca là rưng rưng 🥺
+val,tik014420,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺 🥺,sao cứ chuẩn chuẩn sao sao í 🥺🥺
+val,tik014633,0.65,emoji_NEG->gold_POS,NEG,interest,POS,🥺,ủng hộ cover toi với🥺
+test,16618,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺,dễ thương qóoo 🥺
+test,24547,0.65,emoji_NEG->gold_POS,NEG,positive,POS,🥺 🥺,Trần Nguyên coi nèeeee. Đi hoang sơ thích hơn 🥺🥺
+train,602,0.6286,emoji_POS->gold_NEG,POS,sadness,NEG,😘,bà về nơi phương xa mất rồi . nhưng với tớ bà là người dễ thương nhất trên đời . chỉ muốn ngả vào lòng ngoại nghe kể về những câu chuyện cổ 😘
+test,you002381,0.6286,emoji_POS->gold_NEG,POS,fear,NEG,😘,"Chị ơi e đang chuẩn bị thi THPTGQ khá áp lực trong chuyện học tập , cứ đặt lưng xuống là lại nghĩ k đỗ đại học dằn vặt làm giấc ngủ không được tốt , mất 1 lúc lâu để có thể chìm vào giấc ngủ được, nhưng cũng hay mất giấc , k ngủ sâu được... dẫn đến tinh thần khá mệt mỏi , học hành khônh hiệu quả ... chị có thể chia sẻ cách giúp có tinh thần tốt nhất được không ạ ... em cảm ơn chị 😘"
+train,17107,0.625,emoji_POS->gold_NEG,POS,sadness,NEG,♥️,"Buồn, thương ♥️"
+train,4272,0.6078,emoji_NEG->gold_POS,NEG,interest,POS,😑 😑 😑,tao đang thă ́ c mă ́ c ta ̣ i sao thă ̀ người da đen no ́ quen được con nho ̉ da tră ́ người ngon va ̃ i thê ́ nhy ̃. 😑😑😑
+train,2478,0.6078,emoji_NEG->gold_POS,NEG,interest,POS,😑,đồng nghiệp của tôi là ai 😑
+train,620,0.6078,emoji_NEG->gold_POS,NEG,interest,POS,😑,khúc mắc cười đoạn nào vậy 😑
+train,5378,0.6078,emoji_NEG->gold_POS,NEG,positive,POS,😑,"kết nó ở cái câu "" đất nước gia lai là một đất nước giàu tài nguyên , có anh per ""😑"
+train,6305,0.6078,emoji_NEG->gold_POS,NEG,positive,POS,😑,"tốt nhất là đừng crush ai ngoài bản thân ra cả , để khi nhớ thì chỉ cần lấy gương ra nhìn cái là được 😑"
+val,2968,0.6078,emoji_NEG->gold_POS,NEG,interest,POS,😑 😑,giống tao thế nhỉ ! 😑😑
+test,3900,0.6078,emoji_NEG->gold_POS,NEG,positive,POS,😑 😑 😑,quá kinh ngạc phá được mọi loại khóa luôn 😑😑😑
+train,5919,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,cắt . cảm ơn đoạn giả dối kia đã giúp các bạn trẻ có thêm niềm tin về 1 tình yêu đẹp 🤣🤣 riêng tao đéo tin nhé
+train,25703,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Vũ Tũnn lại cái văn đổ thừa của bọn thất bại này 🤣
+train,13365,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Mei Nguyen ẻ chảy còn mệt hơn ấy.mất nước thì ng như đi mượn .nói chung ẻ kiểu gì cũng mệt 🤣
+train,26932,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,"Trần Xuân Biên bạn cứ thoải mái, tôi có là gì đâu mà cho phép vs chả k 🤣"
+train,4377,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,ôi đàn bà là những niềm đau 🤣
+train,1308,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,trai tài gái sắc .. danh ngôn rồi tài sản chứ tài gì !! 🤣🤣
+train,1621,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,"ngày trước cái thằng ngồi cạnh nhờ nó né cái mông để lấy cái bút dưới bàn nó nó đéo né . cuối cùng nó phải lên phòng ý tế băng đầu ( lớp 1 🤣) "" tôi đã nợ chàng trai ấy một cái "" đập đầu "" ""🤣"
+train,22039,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣 🤣,"Huyền Diệp  đúng rồi, nhất là các thể loại vào cửa hàng tiện lợi hay siêu thị ấy, thay vì tự trông con lại còn bắt nhân viên trông dùm nữa, con làm hư đồ, check cam rõ ràng còn đổ thừa do nv cửa hàng đc mà
+🤣🤣🤣🤣"
+train,17259,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,"Chí Cương đúng là k nên đánh giá qua những gì mình thấy trước mắt
+Vậy bạn thấy gì ở bức ảnh
+Bạn thấy đc sự mệt mỏi thấy đc sự áp lực à
+Hay thằng trong ảnh tâm sự với bạn. 
+🤣🤣 Ôi từ khi nào mà 1 bức ảnh ngồi ghế đc quy nạp là áp lực cột sống z"
+train,30176,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Làm cái đơn phá hoại tài sản. Tạm giam vài tháng. Người nhà nó qua năn nỉ rút đơn thì lúc đó tha hồ dựng rạp. Dựng vô nhà nó luôn cũng đc 🤣
+train,11602,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣,""" thằng"" này nó đang bực vợ nó.đấm đau thật...🤣🤣🤣"
+train,27302,0.5842,emoji_POS->gold_NEG,POS,fear,NEG,🤣,Hai Yen thề chứ đêm đang ngủ nghe bọn mèo nó gào rồi phá trên mái nhà là nằm im ko nhúc nhích luôn🤣 hồi đó còn bé yếu bóng vía nghe sợ muốn chết
+train,11780,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣 🤣 🤣 🤣,Tự mình thương mình thôi.đợi ngta thương thì chắc phải tu 10 kiếp.🤣🤣🤣🤣
+train,2307,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣,"bạn bè thì nó hỏi han , hay nhắn tin thôi .. hồi trước hay ảo tưởng lắm , nhưng giờ lớn nên hết trẻ trâu rồi 🤣"
+train,28879,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣,Tại xe cấp cứu làm chậm việc làm ăn của nó nên nó cay á 🤣🤣🤣
+train,11518,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Hà Công Thắng đúng này bọn nữ quyền momx bênh mãnh liệt lắm cứ như bênh bme nó vậy 🤣
+train,29312,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Vuong Nguyen thông tin ở đâu thế 🤣 thấy nó phá xe là dở rồi
+train,4044,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,per bị chữi thì ráng nghe mà vui đi nghe . cứ như nghe hát miễn phí 🤣🤣 còn bị chữi là còn hạnh phúc . nguoi ngoài ngọt ngào nhưng chắc gì đã thật lòng đâu
+train,18940,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,Học sinh lớp 6 đang học thơ thì bị bắt đi ăn mù tạt🤣🤣
+train,18960,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,"ở tập thơ riêng của ông thì kệ ông, đưa vào SGK người ta mới kêu chứ 🤣"
+train,tik012293,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣,"Hối hận vì ko nghe lời bme,cứ nhất quyết Lấy ngta vì Yêu. Đến khi mk gặp khó khăn thì nhắm mắt làm ngơ như 2 kẻ xa lạ.trong khi mk sẵn sàng đồng cam cạnh khổ vì ngta .🤣thật trớ trêu"
+train,12522,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣,Bố Mẹ đặt gánh nặng học hành lên vai von cái điều này xảy ra ở ko ít gia đình 🤣
+train,30858,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣,Thà đi vòng 5 10km chứ đéo chơi ngu nv🤣🤣🤣
+train,6030,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,tao bướng nhưng mặt đéo đến nỗi như con bé kia 🤣
+train,13340,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Trang Nguyễn thôi chúc nó ỉa chảy ngày 10 lần đến hết đời là dc. Chứ chết thì tội lắm.🤣
+train,827,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣,tao đéo hiểu sao người yêu tao đi cắt tóc về trông mặt ngáo đến kì lạ 🤣🤣🤣
+train,13373,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣 🤣 🤣 🤣,"Đây là lí do vì sao t chạy xe ôm bao nhiêu năm mà không bao h nhận đơn đồ ăn, vì nhiều ng hãm lắm luôn 🤣🤣🤣 chở gái hay chở đồ còn thích hơn 🤣🤣🤣"
+train,23430,0.5842,emoji_POS->gold_NEG,POS,fear,NEG,🤣,"Nguyễn Uyên thật nha má, t mua xong t cũng phải giấu trong cặp. Chả hiểu🤣"
+train,33312,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣,Ưn Chi định up lên cho thiện hạ bênh cơ mà ko thành à 🤣
+train,33285,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Đm gặp tao thì m1 năm sau la giỗ đầu của c chứ đéo đc tới rằm đâu 🤣
+train,13364,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,Hồng Phạm cuộc đời toàn cứt vs đái ko vậy 🤣🤣
+train,16686,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,Thương thì thương nhưng vẫn phải than bả nói nhiều 🤣🤣
+train,19347,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,"Andy Lam cũng là có qua có lại, đâm đầu dô mấy chỗ này thì phải biết trước kq là như dậy , khóc gì 🤣"
+train,23061,0.5842,emoji_POS->gold_NEG,POS,fear,NEG,🤣,Hưng Táo sợ quá nhể 🤣
+train,2895,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,tình yêu là lời nói dối của 1 thằng khùng được tin bởi 1 con ngu 🤣🤣
+train,29663,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,Đọc bình luận thấy vẫn nhiều người chê xe VF. Giờ VF chạy đầy đường rồi chắc tức lắm nhỉ 🤣🤣
+train,18938,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Này mà gọi là thơ à 🤣
+train,6759,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣,"đi hát văn nghệ cho trường nguyên cấp 1 , kiếm được kha khá . cấp 2 vỡ giọng , khỏi hát 🤣"
+train,23454,0.5842,emoji_POS->gold_NEG,POS,fear,NEG,🤣 🤣 🤣,"Bình tĩnh nghe em nói
+Mọi chiện ko như anh thấy đâu 🤣🤣🤣"
+train,31777,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣 🤣,Mạnh Louis ricon cào khóc trong tuyệt vọng 🤣🤣
+train,4975,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣,không biết s chứ ngày lúc 17t tao đi phục vụ phòng karaoke ... mình tao 2 phòng chạy qua chạy lại mệt quá vì xỉn ... kkk . thế là tao nghỉ trong ngày đầu vào phục vụ karaoke .🤣🤣🤣
+train,33308,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,Con bạn thân trơ trẽn nhất từ trk tới giờ🤣🤣 phải t đ nhẹ nhàng thế đâu.
+train,25705,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Vũ Tũnn bởi thế nên t mới gọi chúng m là bọn thất bại 🤣
+train,31778,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,Mạnh Louis đúng đần hết phần xã hội lũ riconit 🤣🤣
+train,6938,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣 🤣 🤣,Yến Yến thật ra thì cũng biết là thế nhưng vì sĩ diện nên k nhận thôi🤣🤣🤣
+train,25704,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Minhh Đăng kèo bên tụi mày thơm quá nên bên t thua pãi ròi 🤣 bên m có dư luận viên ròi ban tuyên giáo nụa sao tụi t đấu lại
+train,33281,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣,"Luan Van Nguyen thật. Có phải bố mẹ mình méo đâu mà đòi dạy, dạy cái củ c 🤣🤣🤣"
+train,22001,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣 🤣,"Nguyễn Ngọc rồi chửi thêm con ng khác nữa ý mom ạ. Có đợt e gặp cũng kiểu mẹ bấm điện thoại 1 góc, con chạy lăng xăng, chạy vào khu đánh đu, có bạn đang đánh đu va vào bé chạy đó. Con khóc mẹ còn k biết, lúc mn hỏi mới ra, ra thì chửi cái bạn chơi đánh đu kia sao đu tnao va vào e, chửi luôn cả mẹ bé ý là: đứng gần k biết bảo con chơi đu nhẹ à🤣🤣🤣. 
+Cạn lời với nhiều mẹ trẻ"
+val,3762,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,"tao cũng nghĩ là vậy , chứ ở đó mà mừng rồi nuôi đẻ . bố mày không thích ăn sừng , phắng 🤣"
+val,11536,0.5842,emoji_POS->gold_NEG,POS,fear,NEG,🤣 🤣,Cong Minh ye ye🤣🤣 nói ra sợ bị táp
+val,31488,0.5842,emoji_POS->gold_NEG,POS,sadness,NEG,🤣,Nhưng mà thua hoài nó chán 🤣
+val,18581,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣 🤣,Theo điều ABC BLHS bạn có thể kiện dám lấy hình ảnh riêng tư phát tân trên mạng 🤣🤣
+val,33294,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,"Ruby Khánh Linh đúng, phải ch.ửi chứ, mà phải ch.ửi cả 2 đứa luôn, hãm giống nhau, hèn gì chơi thân tận 20 năm 🤣"
+val,23389,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Đồ lăng nhăng 🤣
+test,18900,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Bài thơ nhảm nhí 🤣
+test,28909,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Nguyễn Sin chặn xe cứu thương đặng bán hòm dạo này ế quá mà anh🤣
+test,18980,0.5842,emoji_POS->gold_NEG,POS,anger,NEG,🤣,Thơ như của hs sáng tác 🤣
+train,15285,0.5818,emoji_NEG->gold_POS,NEG,positive,POS,🥹 🥹 🥹,🥹🥹🥹 Mừng quá mừng. Cảm xúc ko nói nên lời
+train,19962,0.5818,emoji_NEG->gold_POS,NEG,positive,POS,🥹,Đam mê hay ha🥹
+train,16672,0.5818,emoji_NEG->gold_POS,NEG,positive,POS,🥹,Đọc mấy bài này thấy tích cực hơn hẳn 🥹
+train,30451,0.5818,emoji_NEG->gold_POS,NEG,interest,POS,🥹,Danh hài U Cà giờ đag ntn nhỉ? 🥹
+train,28400,0.5818,emoji_NEG->gold_POS,NEG,positive,POS,🥹 🥹 🥹,Chòi. Mê món gà phô mai ở cn bờ kè lắm. Ko biết phomai có được tận dụng ko 🥹🥹🥹
+train,27638,0.5818,emoji_NEG->gold_POS,NEG,positive,POS,🥹 🥹,"Phạm Sương đúng là cô giáo văn, luôn nhìn thấy triết lý đúng sai🥹🥹"
+train,23826,0.5818,emoji_NEG->gold_POS,NEG,positive,POS,🥹,Phim hayy lém lun í 🥹
+train,you000681,0.5818,emoji_NEG->gold_POS,NEG,interest,POS,🥹,E gần 30 nhưng tâm hồn đang ở tuổi 18 🥹
+val,tik008535,0.5818,emoji_NEG->gold_POS,NEG,positive,POS,🥹,🥹 em ơi
+train,13375,0.5799,emoji_POS->gold_NEG,POS,anger,NEG,=)) ❤,"Xăng đang lên nên đừng làm chuyện thất đức mấy má ơi =)) kh tiền hoặc kh lấy được thì đừng đặt cho sang mồm =(( tội ngta hiuhiu, may mắn trên đời này còn nhiều người tốt ❤"
+train,tik023038,0.5544,emoji_POS->gold_NEG,POS,anger,NEG,😁 🥰 😂,Còn nữa 😁 VN đứng thứ 92 trong bảng xếp hạng fifa Thế Giói 🥰😂
+train,tik011630,0.548,emoji_POS->gold_NEG,POS,sadness,NEG,😁 👍,giá như hôm ấy không chủ động với Cr...😁👍
+train,you004767,0.5357,emoji_NEG->gold_POS,NEG,positive,POS,🤡 🤡 🤡,Thì ôg già đó kiệt r sao có con đc nx🤡🤡🤡( <b>JOKE</b> )
+val,tik022598,0.5357,emoji_NEG->gold_POS,NEG,interest,POS,🤡,bắt t một mình làm j hay đi đâu một mình vs ng ko quen là t câm luôn🤡
+test,32894,0.5357,emoji_NEG->gold_POS,NEG,positive,POS,🤡,"Cao ráo đẹp trai, học trường xịn, mẹ hoa hậu, bố làm tổng thống.
+Kịch bản ngôn tình còn chưa dám viết cỡ này 🤡"
+train,20415,0.5333,emoji_NEG->gold_POS,NEG,interest,POS,😫,Duc Anh Nguyen trời ạ 😫
+train,2234,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙃,tao thích con trai đầu tóc gọn gàng vãi_chưởng 🙃
+train,5072,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙄 🙄 🙄,"per 2 con hay cap màn hình nhất thế giới , nói chuyện với nhau toàn cười ỉ 🙄🙄🙄"
+train,tik017915,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙃,thật luôn🙃
+train,20022,0.5333,emoji_NEG->gold_POS,NEG,interest,POS,🙄,Cứ nghĩ chỉ có trong phim hàn 🙄
+train,279,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙃 🙃 🙃,bác không ở lại làm tô phở đã 🙃🙃🙃
+train,3299,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙄,cảm động người thầy đưa học sinh đi làm hồ sơ 🙄
+train,19756,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙄,Chay âu cho thoát 🙄
+train,3219,0.5333,emoji_NEG->gold_POS,NEG,interest,POS,🙄,giống chó này tên là gì vậy các bác 🙄
+train,14189,0.5333,emoji_NEG->gold_POS,NEG,interest,POS,🙄,Kim Ngân  xem thử hk 🙄
+train,tik018583,0.5333,emoji_NEG->gold_POS,NEG,interest,POS,🙃,ovethingking như t xem đc thì...🙃
+train,23843,0.5333,emoji_NEG->gold_POS,NEG,interest,POS,🙃 🙃 🙃,Ching Ching  1 chuyện quan trọng hơn phải thừa nhận là nếu không có thân người là không có làm được - dù đôi khi nó không may mắn và thua thiệt nè 🙃🙃🙃
+train,3083,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙄,"đm buồn cười đéo chịu được , đặc vụ nằm vùng đi xe đạp thì đuổi sao kịp mấy th lol đi xe máy 🙄"
+train,16340,0.5333,emoji_NEG->gold_POS,NEG,interest,POS,🙃,My Nhu trái gió trở trời 🙃
+train,19993,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙄 🙄,Ultr… cái này mà tạo thành phim chắc cuốn phải biết 🙄🙄
+val,19732,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙃,chú phi xe nét quá ạ🙃
+test,tik016996,0.5333,emoji_NEG->gold_POS,NEG,positive,POS,🙃,"Không có gì ngại hết ák, cứ tự tin sống lạc quan đi nhák🙃"
+test,tik017000,0.5299,emoji_POS->gold_NEG,POS,sadness,NEG,❤️ ❤️ ❤️ 🙈,@tchang @3❤️11❤️2014❤️🙈 việc cởi khẩu trang cx ngại...
+train,27258,0.5263,emoji_NEG->gold_POS,NEG,positive,POS,😱,Châu Hải Yến chính nó!! 😱
+train,3499,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂 😂 😂,per nhờ mất bạn nên mình mới biết 😂😂😂😂
+train,28918,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Nó bán hòm hèn gì k thích xe cấp cứu , nó làm z cũng có lý do hết 😂"
+train,22046,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,Tú Anh mình 5 năm làm siêu thị ức chế quá nhiều😂 muốn úp váy lên đầu khách luôn ý chứ😂
+train,you003598,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂 😂,qa vài lần là ngộ ra ngay..hồi đó a cũng lụy như e.  vỉ tình yêu a đợi cả đêm..nhưng chưa tới nửa đêm a buồn ngủ vs muỗi nó bu qa nên a đi về. ko là a đợi tới sáng cũng đc.😂😂😂
+train,25737,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Lúc nó lạng lách đánh võng net pô. Thì ở ngoài rủa loại này đánh chết t mừng. Giờ lên đây thấy ai cũng bênh 😂
+train,you000055,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,1 đế chế tự vẽ 😂 sự thật thì nó chưa được 1/10 😂
+train,you000107,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Lịch sử kháng chiến trong SGK không ghi gì về cuộc chiến chống đế quốc Khmer thì chứng tỏ quân đội đến xâm chiến này quá yếu, không cần phải để học sinh học làm gì cho đau đầu 😂"
+train,18895,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Thơ này bị ngấm nước khoái 😂
+train,25675,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Cgic cũng tại công an rồi lại nói là cháu nó ở nhà ngoan lắm 😂 thế k nghĩ nta mất vc à . Nta nuôi vợ con kiểu gì , bme thì lên báo cháu n không sai ngoan hiền . Lớn lên cũng k thành ng đâu"
+train,you003771,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,Mai mốt lớn lớn tí xong nhớ lại lúc này.<br>Ơ sao hồi ấy mình lại phải làm thế nhỉ<br>Ơ sao hồi ấy mình phải khổ thế nhỉ <br>Thế gian này đã hết gái đâu. Mấy tỉ gái chả lẽ k đứa nào va trúng mình 😂
+train,33261,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Đặng Tú . hóng. đọc xong k phải chuyện của mình mà muốn xông vô chửi ghê. phải t t cũng chửi cả ck cả bạn ck😂
+train,23082,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,Nhanh trí đổi chồng. Đi quánh con tiểu tam 1 trận xong nói câu thứ như m t còn đẻ ra được thì t dạy được. 😂😂
+train,30223,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Luân Nguyễn phá hoại tài sản là đúng mà, người ta dựng rạp sai thì có chính quyền xử lí, tự ý tông mà bảo k phải phá hoại thì khác j tự đốt nhà mà k phải ở tù 😂"
+train,5973,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,"rớt mũ trước , sau là rớt đầu . con với cái mắc dại thiệc 😂"
+train,2962,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂,t mà bị như này thì chắc tao chết luôn c ạ 😂😂 per
+train,6346,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,ý thức như lol . 😂😂
+train,28375,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Mấy cái panchan hàn quất cũng dc gom lại r đưa lại cho khách. Trc t làm nhà hàng hàn thấy v á, tụi hàn quắc keo lắm , giữ lại nấu soup kimchi 😂"
+train,4052,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂,ổng đang chán ai tán yêuc luôn 😂😂
+train,28858,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,Nguyễn Sin a yên tâm đi đi e ỡ nhà e kiếm thằg khác ném đá tiếp 😂😂
+train,25716,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,Trần Q.Anh vâng nhưng cũng phải kỷ luật như nhau thì dân mới an tâm vs mấy anh thanh niên cứ gồng hết cơ đít lên để ga c ạ 😂😂
+train,3462,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,hic . nhiều khi thấy bả ngu thiệc chứ kp đùa 😂
+train,23094,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,cái tên nhiên này hay là tên của tiểu tam lắm. trước mình cũng gặp 😂
+train,tik012216,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,Chưa bgio tao hối hận về nhưg gì đã làm kể cả nhưg việc t đau khổ đến tột cùng . Nhưg tao dám chắc sau này chúng mày sẽ phải hối hận cả đời 😂
+train,155,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,"mức thu cao nhất - đồng ý vì số liệu nó thể hiện như vậy , chứ còn hiệu quả thì mình không biết đúng không 😂 mỗi lần vô vcb là hiểu phải đợi mỏi mòn , không như những nh khác"
+train,1974,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,mua con lợn 5 chục lì xì được có 40 nghìn mất thời gian tốn cả tiền bạc 😂
+train,20001,0.5253,emoji_POS->gold_NEG,POS,fear,NEG,😂 😂 😂,"em nói z thôi, chứ em cũng rén rồi😂😂😂"
+train,19413,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Chang Chang hên cách đây 1 tuần tính khám chỗ này nè B 😂 mà hên s chưa có tgian đi, ta nói nvien bên đó đt hối muốn tụt quần."
+train,you000008,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Dân Campuchia bây giờ toàn ăn mày quá khứ suốt ngày ảo tưởng. Ngay cả đế quốc ba tư, Mông Cổ, la mã kia còn sụp đổ thì cái Khmer bé tẹo tuổi gì mà suốt ngày lải nhải thay vì chịu khó mà làm ăn 😂"
+train,673,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,thằng nào kiểu như này tao cho cạch mặt !!! đéo thích nữa 😂😂
+train,6135,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,tao mợt bây quá 😂😂😂
+train,1094,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,chủ tịch rả vờ ngu và cái kết đừng bao rờ khinh thường người khác 😂😂
+train,1043,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"per hồi nhỏ bị con đỉ này dí lòi lol 😂, bị cắn bầm đen muốn thúi thịt luôn cả tháng hơn mới hết . mà đươ ̣ c cái con này nuôi nó giữ nhà cửa hay , có nó không sợ ma quỷ gì hết"
+train,11577,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Phong Nguuyen ông bác rất chịu khó dậy sớm để đi cmt dạo nhưng hơi ngu 😂
+train,tik013364,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,Nghe nản thế😂
+train,5178,0.5253,emoji_POS->gold_NEG,POS,fear,NEG,😂 😂,nó mà nhập viện thì xong đời tao . n 😂😂
+train,13341,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Huynh Giao Nguyen thì ý mình chết là đến hết đời luôn đó cậu 😂
+train,3449,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂 😂 😂,nhờ mất bạn nên mình mới biết 😂😂😂😂
+train,4125,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,per muốn nói gì phải ngó trước ngó sau không chi mất đầu như chơi 😂😂
+train,4903,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,công an béo như lợn không đuổi nổi tội phạm 😂😂
+train,20444,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,Xuân Nghĩa xem phim Hàn Quốc và phim Mỹ quá 180 phút. 😂😂
+train,tik011998,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂 😂,hối hận nhất là đi lấy chồng 😂😂😂
+train,31563,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂 😂,Bắt rồi thả 😂😂😂😂 má hài t là t bắt t rang muối phơi khô từng con ăn cho đỡ phí công
+train,26614,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,“Đối tượng này cần phải loại bỏ hoàn toàn khỏi xã hội” 😂😂😂
+train,31643,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Andy Nguyễn tệ nạn lắm 😂 thả k ai bít thì được
+train,31015,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Để ráng kiếm tiền mua xe hơi về canh mấy thằng bắt chó gần nhà 😂
+train,11564,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Khoan , đã đấu boxing r còn kêu bị đấm đau , chắc mấy ô bị đấm đến mức chảy máu trong ko kêu j họ ko đau đâu. Nhể😂"
+train,1173,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,thân gửi mấy má bán combo quà độn xốp với mấy cha có ý định tặng 😂😂
+train,6106,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,bây chửi kệ bây ! riêng tao thik phá trong trường hợp này 😂
+train,you000266,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,Em ko ngờ đế quốc khmer xâm lược Đại việt 5 lần thua mà còn có thể gửi lá thư cho Đại việt ta kêu ta làm thuần phục và tung hô nó được chịu đế quốc này luôn ý(yếu hơn bày đặt kêu nước mạnh hơn làm theo yêu cầu của mình)😂😂😂
+train,5247,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,ngta lở ăn vụn tha đi lúc đầu thấy êm re tội quá chừng lúc sau tức nước vở bờ 😂😂😂
+train,5750,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,tao nhìn tao thấy ghê vcd ấy 😂😂
+train,tik023078,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,"tôp 1 TG có nhiều chủ tịch nhất
+tôp 1TG có nhiều GS vs T.Sy nhất
+Tốp 1 TG về lan đột biến 😂😂😂"
+train,12478,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Quách Thanh Thủy để có dc con đã khó, nuôi dạy còn khó hơn các mẹ ạ. Nhiều lúc nịnh ko dc, nặng cũng ko được chỉ biết uất thôi😂"
+train,you000071,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Cam Pú Chia tuổi j z AE😂
+train,23062,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,Sao mn k nghĩ là cay quá nên đặt tên như vậy. Mai sau mắng con cũng là mắng nyc nhỉ 😂😂😂
+train,214,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,bán hàng onl riết bán luôn não rồi 😂😂
+train,725,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,"hồi học lớp 5 bảo bố đi mua sgk cho , xong bố đi mua nguyên bộ lớp 4 đầy đủ từ sgk đến vở bài tập 😂"
+train,684,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,chúng mày cứ cười . dm mai gần đấy có biến lại thấy anh ấy trong bộ cảnh phục thì lại tung hô quả nằm vùng quá đẳng cấp 😂😂😂
+train,4999,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,đứa lồn nào vẽ cái ổ điện thế 😂
+train,6558,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂 😂,chuyện thì buồn nhưng nhìn cách kể của bé này thì nhịn cười không được 😂😂😂
+train,6954,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Ý là đi cầu thang máy không hơn à mà phải bắc thang chi😂
+train,you000243,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Đánh thì thua mà lại bắt thần phục và cống nạp 😂
+train,11819,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂,Manh Vo Huong Minh a/c lớn để e út mong chứ sao lại cười thế hè . Buồn ....😂😂
+train,18882,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Đâu liên quan gì tới nhà thơ đâu. Việc này liên quan tới người duyệt bài. Hóng táo quân năm nay. 😂
+train,28896,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Đức Nhân Apple nó ghi sdt trên fb tui điện k được tui Ck nó nó kèm lời nhắn 😂
+train,tik023073,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,Top xkld culi nhiều nhất TG ... tư hào quá bà con 😂😂
+train,6306,0.5253,emoji_POS->gold_NEG,POS,fear,NEG,😂 😂,"những người đang buồn ỉa mà càng nhịn , khi bùng phát mới thật sự đáng sợ 😂😂"
+train,28874,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂 😂,Thôi thế là xong . 1 phút bốc đồng 1 đời bốc c** luôn . Công k thành mà đời Danh cũng không toại luôn 😂😂😂
+train,30364,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,T chỉ quan tâm đến cậu út của trum đợt này sẽ lên báo thế nào thôi. Năm ông trum làm TT lần đầu t mê mỗi con trai ông 😂😂😂
+train,733,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,đéo được tích sự gì 😂
+train,2931,0.5253,emoji_POS->gold_NEG,POS,fear,NEG,😂 😂 😂,add cứ khoe đi . mai lại chặt hết như nguyễn trãi mà 😂😂😂
+train,3941,0.5253,emoji_POS->gold_NEG,POS,fear,NEG,😂 😂 😂,coi mà hồi hộp vãi 😂😂😂... nghỉ tới khúc nó nhảy trượt rớt xún chắc bó chửi banh nóc ... v
+train,29758,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,Sáng Dê đi 3năm bán lại ko ai mua 😂
+train,29685,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Thanh Cong Nguyen những đứa k có tiền mu thường rất cay khi nghe tin vf thịnh hành😂
+train,775,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,ghét nhất mấy loại bép xép thế thôi . nhanh gọn lẹ 😂😂😂
+train,33295,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Nguyễn Thảo cag chơi cag hợp nên cứ chơi miết năm này qua năm khác thôi😂giống nhau quá mà
+train,you000064,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂 😂 😂 😂,Chả có thằng vua nào vì dân cả. Chỉ sợ bản thân + người nhà nó thôi😂😂 Miệng nói yêu dân như con😂😂 Đời nào nhường ngôi cho quan tốt😂😂
+val,2008,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂,đứng dưới cây này chỉ sợ ngột vì mùi hoa sữa 😂😂😂
+val,23455,0.5253,emoji_POS->gold_NEG,POS,fear,NEG,😂 😂,sợ hãi các thứ 😂😂
+val,33305,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Lọ Lem khó cái là con đó nó hãm zi nên k thằng nào rước nên nó k có ck á chớ 😂
+val,you000216,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,Giờ sáp nhập Campuchia vào Vn là tốt nhất 😂.. cha con nhà hu sen cho chức danh trưởng ban... Là đc . bớt láo lại
+val,tik011933,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,Hối hận 😂
+val,6101,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,đồ con ngỗng ngu ngốc 😂
+val,58,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,có vẻ người dân hơi mê tín quá 😂
+val,234,0.5253,emoji_POS->gold_NEG,POS,fear,NEG,😂 😂,nói xong còn chả dám ăn nữa 😂😂
+val,31663,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,Giống kiếu đánh ngta xong xin lỗi😂😂
+val,you000208,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"Thời nào cũng v , gặp Việt Nam t thì chỉ có ăn vả sml 😂"
+test,6798,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂,uề ... lại li hôn không thành công ... 😂😂. t buồn cười câu này quá per
+test,896,0.5253,emoji_POS->gold_NEG,POS,fear,NEG,😂,hồi nhỏ cứ đi qua chỗ nào mà nhìn từ xa thấy bóng dáng mấy con đuỹ này là chuẩn bị tinh thần chạy chứ nó dí sấp mặt luôn dù mình đéo làm gì nó hết 😂 vừa dí vừa ngoác mỏ hét sợ vãi ra
+test,5425,0.5253,emoji_POS->gold_NEG,POS,sadness,NEG,😂,per ồ ồ chân chính chạnh lòng rồi 😂
+test,5504,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,"mấy bạn nào có ý định tổ chức sn nv thì tém tém lại síu đi , nếu thích tổ chức sn kiểu nv ở đâu cũng vậy khi ra về làm ơn bo cho nv dọn phòng đó 200 300k gì đó cho có tình người síu nha 😂"
+test,tik004739,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😂 😂 😂,ở đâu mà khổ quá vậy em thương vợ chồng em quá hà 😂😂😂😂😂 .kẻ ăn ko hết người làm ko ra ở QN tôi cũng có nhiều. hoàng cảnh khó khăn nhưng đâu đến nổi bần cùng giữ vậy ! cảm ơn gà lang than
+test,893,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,quên đào tạo đạo đức thôi mà báo làm căng vãi 😂
+test,you000104,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂,CPC chiến với Việt Nam 5 lần thua cả 5 mà còn đòi triều cống!?😂
+test,18976,0.5253,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂,Thơ như cái qq . Mấy cái loại con ông cháu cha đưa vào rồi đưa vào cho nó viết 😂😂
+train,29749,0.5166,emoji_POS->gold_NEG,POS,anger,NEG,=)) 🤣 🤣 🤣 🤣,Nguyễn Hoàng Giang =))) đúng kiểu thiếu hiểu biết nhưng lại thích thể hiện 🤣🤣🤣🤣
+train,5818,0.5141,emoji_POS->gold_NEG,POS,anger,NEG,😁 😂 🤣,evn nó đéo thích đâu nhé .. nó chỉ giả vờ lươn lẹo nói thế thôi ..!? 😁😂🤣
+train,17495,0.5,emoji_POS->gold_NEG,POS,anger,NEG,😃 😃,Hương Giang thế ngoại tình là đc bỏ luôn con cái à 😃 đàn ông nhiều tk vẫn k có bỏ đâu 😃
+train,24608,0.5,emoji_POS->gold_NEG,POS,anger,NEG,😃,"đi PQ về chỉ thấy mỗi đắt và mệt, đồ ăn đắt, dịch vụ đắt bù lại các điểm chơi xa nhau vch😃"
+train,tik016482,0.5,emoji_POS->gold_NEG,POS,sadness,NEG,😃 😃,"Nh bạn còn đẹp chán😃
+Mih răng hô mũi to mắt nổ mắt xịt nhiều mụn đây
+Nhiều lúc khbt mình tồn tại trên tgioi này lmj tại mih xấu quá😃"
+train,17496,0.5,emoji_POS->gold_NEG,POS,anger,NEG,😃,Hương Giang bạn kia đang cổ súy đàn bà ngoại tình đó 😃.
+train,tik016915,0.5,emoji_POS->gold_NEG,POS,sadness,NEG,🍀,Tu ti 🍀
+val,20033,0.5,emoji_POS->gold_NEG,POS,anger,NEG,😃,Phong Hào chịu rồi😃
+train,you005889,0.4952,emoji_POS->gold_NEG,POS,sadness,NEG,:D ❤,"Dính luôn vui thật,ở nhà thì bị bame so sánh với con nhà ngta như này như kia còn ở trường thì lại bị bắt nạt nhìn em cười đã chắc gì em đã vui đúng vậy em là một đứa ngu khi tin vào thứ tình cảm giả đó,đã có bao giờ họ coi em là một con người chưa em cũng là con người em biết đau biết buồn mà em đâu phải bức tượng để làm hài lòng mọi người em cũng muốn đc vui chơi với bạn bè cùng lứa tuổi và được tự do mà cũng vì những điều ở trên đã khiến em từ một đứa trẻ năng động hướng ngoại đã thành một đứa giả tạo sáng thì cười tối thì thu mình lại và khóc,cái cảm giác cắt tay nó vẫn không đau bằng việc em bị ng ta coi là bức tượng và không quan tâm tới cảm xúc của em,nhưng mọi ng đừng lo em chỉ khứa mỗi khi em cảm thấy quá mức chịu đựng và đau khổ thôi,nếu chuyện này vẫn tiếp diễn thì chắc em sẽ chọn năm 18t để tutu vậy vì đó là độ tuổi đẹp nhất cuộc đời :D<br>Nhưng vẫn còn lâu lắm em chỉ mới 12t thôi❤"
+train,2293,0.4944,emoji_POS->gold_NEG,POS,sadness,NEG,😂 😂 😂 😁,"ngồi chờ một người đi qua 1 và coi đó như 1 sự tình cờ 😂😂😂 tao đã từng , nhưng đó là tao của ngày xưa . buồn cười thật 😁"
+train,30238,0.4912,emoji_POS->gold_NEG,POS,anger,NEG,😄 😂,"Nói chung có xích mích từ trước rồi thì đừng nên xin xỏ nhau làm gì , nước sông ko phạm nước giếng cho khỏe, xin Mẹ ổng rồi mà ổng ko cho cũng chịu 😄
+Hàng xóm với nhau, ko có lửa thì cũng ko có khói đâu 😂"
+val,tik011723,0.4811,emoji_POS->gold_NEG,POS,sadness,NEG,🥰 🥰 🥰 ❤️‍🩹,"Tình xưa chẳng nhạt chẳng phai
+Mà người giờ đã bên ai mất rồi
+Hoa tàn đâu bởi gió trôi
+Chỉ vì duyên cạn tình rời xa ta
+Cỏ buồn chẳng cạnh được hoa
+Người buồn chẳng thể thiết tha với mình
+Nhớ ai lệ chảy lặng thinh
+Buông tay chẳng nỡ bóng hình chẳng quên
+Hữu duyên mà thiếu lời nguyền
+Cận kề nhưng mãi chẳng nên phận người
+Trên trời lấp lánh sao rơi
+Dưới này lặng lẽ một đời vấn vương
+Người trao lời hứa dịu dàng
+Mà nay để lại phũ phàng trong ta....🥰🥰🥰,...Người đi như gió thoảng qua
+Để lòng ai đó nhạt nhòa nhớ thương
+Cành khô úa lá bên đường
+Như tình chôn kín đoạn trường chia xa
+Tim đau tựa vết xót xa
+Khắc sâu kỷ niệm ngày ta có người ❤️‍🩹"
+train,tik012302,0.4777,emoji_POS->gold_NEG,POS,sadness,NEG,😀 🥰,Tiền bạc mất tìm lại...😀 tình yêu cũng dễ.. chỉ mỗi cha mẹ già đi chưa làm đc mới hối hận🥰
+train,11864,0.4712,emoji_POS->gold_NEG,POS,anger,NEG,😂 😂 😆,Phạm Tâm tôi là ng k tử tế 1 ng con đánh bố đập tivi như lời b bảo vậy mà cả huyện kx này cứ hễ máy giặt hỏng hay điều hoà tủ lạnh hỏng họ lại gọi vào sửa 😂😂😆
+train,tik001083,0.469,emoji_NEG->gold_POS,NEG,positive,POS,😭 😭 🙏,Khu vé 😭😭🙏
+train,23091,0.4667,emoji_POS->gold_NEG,POS,anger,NEG,😊,Nguyễn Diệu Ly vậy t sẽ đặt tên con là tên ngyc để mỗi lần nó hư t đánh đít giống như đang đấm thằng ml nyc 😊
+train,tik017406,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,Trán cao tự ti thật 😊
+train,tik018152,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,Tự ti vì tóc của mình quắng ko đc thẳng như bai người khác nhiều người khịa da thì ngâm 😊
+train,tik011832,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊 😊,hối hận à tôi hối hận là khi gặp cô ấy 😊😊
+train,tik012282,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,Hối hận nhất lấy một người phản bội mình dù cho bản thân đã cố gắng rất nhiều 😊
+train,26608,0.4667,emoji_POS->gold_NEG,POS,anger,NEG,😊,Bảo Phạm Grenades vẫn thấy tôi mấy cái quán thằng này rewiew các a chị khi không đòi tẩy chay quán ăn ngta 😊
+train,tik010884,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,Mình không được nội thương 😊
+train,tik013788,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,"Muốn sửa tính cách này nhưng chẳng sửa được
+Tôi là cô gái ít nói, rụt rè, hay ngại, tự ti , suy nghĩ nhiều , và hay ảo tưởng sống lowkey fb tôi chẳng đăng gì cả á ai mà tốt vs tôi hay biểu hiện gì đó tôi đều tưởng họ thích tôi😊"
+train,tik019546,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,lên lớp thấy tụi nó bu lại đám nc thì mình cx chẳng dám lại ngồi nói chuyện trung 😊
+train,tik015688,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,có mụt rùi gặp người quen cũng ngại😊
+train,tik011766,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,Phải chi ngày đấy ko yếu lòng cảm xúc hôm nay là sự lựa chọn sai của ngày trước😊
+train,you001707,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,Đg có ý định t.ự t.ử 😊
+train,tik015720,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,"t ko thấy tự ti lắm á mặc dù t mũi tẹt, môi mỏng, mặt cx ko xinh lắm, t tự tin lém t cx hay bị mng trêu là con mũi tẹt nhưng t tự nhủ có tiền rồi mình đi nâng 😊"
+train,tik012711,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,Quá mệt mỏi 😊
+train,tik014036,0.4667,emoji_POS->gold_NEG,POS,anger,NEG,😊 😊,mik đã bị rồi mik không bt nói chuyện mà họ luôn chêu trọc tôi nhưng tôi ko biết nói chuyện như tôi cũng tức nhưng ko biết làm được cái gì hết 😊😊
+train,5290,0.4667,emoji_POS->gold_NEG,POS,anger,NEG,😊 😊 😊,"cạn lời , mình ngủ để khỏi nhìn 😊😊😊"
+train,tik014599,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,tự ti lắm nên làm sao giữ đc cậu😊
+train,tik017552,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,ngay cả đi đâu cũng thấy ngại.. 😊
+train,tik013284,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,mình thật vô vụng nhỉ😊
+train,tik010995,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,tôi ước cũng không đc bà tôi mất hơn 1 năm r kể cũng nhanh thật mới đây đã hơn 1 năm r cái đêm đó còn ngồi cạch bà nội mà 😊
+train,tik011705,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,giá như mẹ ko sinh mik ra gì tốt rồi😊
+train,12827,0.4667,emoji_POS->gold_NEG,POS,anger,NEG,😊,Ác thấy thương😊
+train,2824,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,14 / 2 năm ngoái tao mọc sừng . nên 14 / 2 năm nay tao quyết định cưa sừng 😊
+train,tik011729,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,"giá như tôi có thể quay lại quá khứ và gỡ bỏ hết tất cả.là một con người bình thường.không ganh gét,đua đòi, không ham chơi theo bb.và con biết ơn con thương gia đình mình lắm.😊"
+train,6692,0.4667,emoji_POS->gold_NEG,POS,anger,NEG,😊,"đầu mùa mà trên nhà tôi vải có 15k / 1kg , ăn tã từ đầu mùa 😊"
+train,3803,0.4667,emoji_POS->gold_NEG,POS,anger,NEG,😊,có đéo gì mà kì thích thì đi . xin lỗi hơi thô 😊
+val,tik014257,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,hướng nội+nch nhạt+ko có bạn+tự ti+sợ giao tiếp😊
+test,tik018518,0.4667,emoji_POS->gold_NEG,POS,sadness,NEG,😊,bị ngọng nói k ai nghe 😊
+train,you000196,0.4605,emoji_POS->gold_NEG,POS,anger,NEG,😁 😂 😆 😂,Anh cả thì ghê rồi 😁😂😆😂
+train,tik012129,0.4571,emoji_POS->gold_NEG,POS,sadness,NEG,😄,"ko hối hận khi dc sinh ra trong gd này , nhưg hối hận vì dc sinh ra 😄"
+train,31642,0.4571,emoji_POS->gold_NEG,POS,anger,NEG,😄 😄 😄,"Dương Hoàng tại làm rùm beng quá đó, t ra chợ mua trong khả năng 1,2 con, xong t tự đi thả, có ai thấy đâu 😄😄😄"
+train,30245,0.4554,emoji_POS->gold_NEG,POS,anger,NEG,😂 😆,"Hong Phuc Pham 😂 sai thì báo chính quyền tiến hành lập biên bản xử phạt, buộc tháo dỡ chứ ai lại lái xe ủi bay rạp người ta chú 😆"
+val,tik011741,0.4521,emoji_POS->gold_NEG,POS,sadness,NEG,🤣 🤣 😉 😉,sợ pé hc r áp lực + thức khuya nt vs toi toi chọn cách ct để bớt 1 gánh nặng và h pk chứng kiến 1 ng đag dần cưa cổ mà mink ko thể lm ngoài nhìn r thoát ra r lại vào nhìn🤣🤣😉😉
+train,tik010228,0.4464,emoji_NEG->gold_POS,NEG,positive,POS,😇 😭,"m may mắn là vẫn còn ông bà nội ngoại nên m rất chân trọng ông bà 😇
+bởi vì bố m mới mất nên m nhận ra rất nhiều điều 😭
+chỉ có khi mất đi chúng ta mới thấy nó đáng quý nhường nào"
+train,tik021352,0.4375,emoji_POS->gold_NEG,POS,sadness,NEG,💕,@Tuấn Anhh 💕 đôi khi nói chuyện với muôn thú còn dễ hơn với con ng
+train,27593,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁,"Quốc Bình phải vô đọc để biết nhiều thằng đầu ng óc c*t nói thiếu giáo dục lại tự ái, để mình block lần lướt fb nó sạch hơn 😁"
+train,2331,0.4327,emoji_POS->gold_NEG,POS,fear,NEG,😁,"đang định đi nhổ răng khôn , nghe được tin này thấy ghê răng 😁"
+train,11758,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁,"Làm gì có đàn ông như vậy , bớt mơ nha mấy mợ 😁!!!"
+train,tik014770,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁 😁 😁 😁 😁 😁 😁 😁,"ai chê thì kệ mẹ chúng nó ,chúng nó có nhan sắc nhưng lại đéo có đạo đức(ở mọt số thằng)cố lên bro😁😁😁😁😁😁😁😁"
+train,tik014231,0.4327,emoji_POS->gold_NEG,POS,sadness,NEG,😁 😁,"mik cx vậy bạn ạ,nhx mọi người và gia đình vứ bảo mik thái độ,nhiều khi cx muốn đc tự tin nhưng mik lại bị tự ti😁😁"
+train,tik013466,0.4327,emoji_POS->gold_NEG,POS,fear,NEG,😁,đang tính khởi nghiệp k biết sao😁
+train,tik013392,0.4327,emoji_POS->gold_NEG,POS,sadness,NEG,😁,30t tôi suy sụp vô cùng 😁
+train,31463,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁,Nguyễn Vinh Quang về đến cửa nhà đi ngủ đến nơi rồi vẫn hỏi live đâu 😁 thôi đợi 4 năm nữa tổ chức rồi hỏi sớm nha ông
+train,29677,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁,Tuấn Trần tôi thấy ông mới là người đang lùa . Quan điểm của người thấp kém có khác 😁
+train,30200,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁,"Vũ Tuấn Anh Dko Chuẩn mẹ nó r, cũng phải ăn ở thế nào hàng xóm nó ghét, chứ hàng xóm mà tình thương mến thương thì đéo ai người ta làm thế 😁"
+train,11761,0.4327,emoji_POS->gold_NEG,POS,sadness,NEG,😁,Mai Mai nhiều lúc nghĩ thế mà làm ko được 😁
+train,27626,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁,Nguyễn Văn Tuân Vào thì vào mẹ từ 10h đi. Lại vào lúc 1h sáng làm chờ lâu ngủ mất rồi 😁
+train,15512,0.4327,emoji_POS->gold_NEG,POS,fear,NEG,😁,"""I am the one who knocks"" nghe mà rùng mình 😁"
+train,29292,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁,"Chấp Nhận ông đi sai làn rồi còn gì, ngta đang đi ông tạt vào họ, nhưng bố kia chửi cũng sai😁"
+val,28891,0.4327,emoji_POS->gold_NEG,POS,anger,NEG,😁,Trương Hạnh Công Dân chúc gì mà ác với nhỏ thế 😁
+val,tik017795,0.4327,emoji_POS->gold_NEG,POS,sadness,NEG,😁 😁 😁,Không có tiền 😁😁😁
+train,30263,0.4195,emoji_POS->gold_NEG,POS,anger,NEG,😂 😅 😂,Hùng Song không thấy là nói có xích mích từ trước à b? Xích mích mà còn nhờ vả thì khó lắm. Ng có tiền nữa 😂😅😂
+val,14691,0.4181,emoji_POS->gold_NEG,POS,anger,NEG,😅 🤣,cl nè ăn hông t cho 😅 thôi làm ơn làm ơn tao thà đi mưa mà tao đỡ muốn ói 🤣 bớt ảo tưởng dùm t cái
+train,tik016180,0.4167,emoji_NEG->gold_POS,NEG,positive,POS,🫠,mặc kệ ngta tôi tự tin vào bản thân và chăm sóc bản thân tốt hơn🫠
+train,27306,0.415,emoji_NEG->gold_POS,NEG,positive,POS,🥲 🥶 🐧,"công nhận🥲 hồi bé khs sợ tiếng mèo kêu lắm nên không thích mèo. Đêm nhìn ra cửa số thấy con mèo mắt nó sáng còn kêu như kiểu tiếng trẻ em khóc…🥶 Mà giờ thì hết r, bọn mèo xâm chiếm hành tinh r, k ghét được nữa🐧"
+train,2816,0.4132,emoji_POS->gold_NEG,POS,anger,NEG,:)) :)) ❤️,êu ơi sao con mụ này không gặp mình nhờ :))) ước gì có con mụ thế này tông vào mình ý :)))) klq mà giọng bé quay video đáng yêu thế ❤️
+test,14893,0.4024,emoji_POS->gold_NEG,POS,anger,NEG,😀 😃 😄,Video này là của bọn Việt Tân dàn dựng để nói xấu nền giáo dục Việt Nam đấy. Phải bắt bỏ tù hết những người chia sẻ video này 😀😃😄
+train,127,0.4,emoji_NEG->gold_POS,NEG,interest,POS,😕,vèo cái đã 7 năm 😕
+train,3886,0.4,emoji_NEG->gold_POS,NEG,positive,POS,😕,per mày này . nhưng mà lúc già sắp chết 😕
+train,tik000268,0.4,emoji_POS->gold_NEG,POS,sadness,NEG,🤗,xin lỗi bà nha áo tui hơi giãn á🤗
+train,6809,0.4,emoji_POS->gold_NEG,POS,anger,NEG,😗,nhìn thấy nó cười trông giống thần kinh vãi lồn 😗
+train,tik012866,0.4,emoji_NEG->gold_POS,NEG,interest,POS,😕,@Nguyễn Di Đan 😕
+val,23490,0.4,emoji_POS->gold_NEG,POS,anger,NEG,🤗,như kiểu bị bắt quả tang ngoại tình luôn 🤗
+test,5548,0.4,emoji_POS->gold_NEG,POS,anger,NEG,😗,cô ơi nhiệt tình là tốt nhưng bản thân phải an toàn trước 😗
+train,31780,0.3889,emoji_POS->gold_NEG,POS,anger,NEG,😎,Mạnh Louis lo hớt tóc đi cháu 😎1 thằng suốt ngày chỉ biết bám đầu phụ nữ thì biết gì về bóng đá mà bình luận
+train,tik012186,0.3889,emoji_POS->gold_NEG,POS,sadness,NEG,😎,Tôi chỉ hối hận rằng k đủ điều kiện cho vợ tốt hơn thôi. Còn lại mọi thứ đều ổn với c/s tôi😎
+train,2489,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,"sao mày không như crush của tao , thuỷ triều lên cũng đéo sợ nhé 😆"
+train,23962,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,Giang Còii  tại thấy cư dân mạng nhạy cảm qá. Phải lên tiếng c ạ 😆
+train,2773,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,tài liệu mật mà mày cũng biết à 😆 max xạo lờ
+train,33228,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,"Đỗ Thanh nó ko úp cái nồi lẩu nóng đang sôi sùng sục lên đầu là cửu quyền con đầm đỏ che chở lắm rồi chứ ở đó dẫn 2 đứa con ra ngồi lì, bạn nhỉ😆"
+train,1295,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,"may công an đến bắt chứ không thì dân chỗ đó cho vào nồi cả rồi , đã có người cắt cử nhau đi mua giềng mẻ rồi đó chứ 😆"
+train,18911,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,Thơ như đb 😆
+train,25748,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,"Phạm Mỹ Quyên Jr. ah thế ah, đừng nói ""dù nó có thế nào"", ""nếu"" ko may 1 ngày nào đó một đám nhoi nhoi nào đó lao xe như chúng nó đâm vào ng quen, ng thân em thì a nghĩ em sẽ ko nói thế nữa.
+đánh thế là nhẹ đấy, tương lai a nghĩ, ah mà chúng nó làm gì có tương lai 😆"
+train,30449,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,"Băng Nguyễn vô gia cư thì vẫn có quốc tịch VN thì về VN chứ về đâu, có nước nào giám nhận, chả lẽ ra ngoài vũ trụ 😆..."
+train,18587,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,Đồng ý là lái xe md. Nhưng mẹ kia kêu ngại phát ngại với riêng tư mà chính mẹ đăng lên k thèm che mờ là ngại dữ chưa. Này là tui lướt fb thấy bài tự hiện lên luôn nha. Mấy ông lái xe gửi trong nhóm còn mẹ này đăng fb cho bàn dân thiên hạ coi luôn 😆
+train,825,0.3855,emoji_POS->gold_NEG,POS,fear,NEG,😆,"đừng nên thích mấy ông anh cơ bắp , sợ lắm 😆"
+train,1064,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,lấy vợ xong bị tàn phá là có thật 😆 béo vãi_chưởng
+train,448,0.3855,emoji_POS->gold_NEG,POS,sadness,NEG,😆,chưa bao giờ bắn trúng thứ gì 😆.
+train,30199,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆 😆,Vũ Tuấn Anh Dko đợt 2 ông xe ôm bị thằng cháu tôi nó đấm ko trượt phát nào ! Vì cái tội nói láo anh của nó ! Bị đấm xong la lên tự nhiên m đánh tao ! Cái nó bảo trên đời này làm j có cái j tự nhiên 😆😆
+train,3402,0.3855,emoji_POS->gold_NEG,POS,sadness,NEG,😆,trả lại tuổi thơ cho tao 😆
+train,3490,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆 😆,"từ nhỏ đến lớn chỉ nghe được câu mày béo thế , mày nên giảm cân đi chứ không ai nói rằng mày gầy lắm ăn nhiều lên 😆😆"
+train,17546,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆 😆,Ngoại tình là cặm bã của XH.. Dơ lắm.. Rẻ mạt 😆😆
+val,tik021975,0.3855,emoji_POS->gold_NEG,POS,sadness,NEG,😆,cũng ngại😆
+test,26957,0.3855,emoji_POS->gold_NEG,POS,anger,NEG,😆,Tom HoaHoa  cũng thấy bảo nhà thằng ny cấm vì trc đó cứ cãi nhau con dẩm này lại nt cho mẹ ny bảo đừng liên lạc gì nữa 😆
+train,27645,0.3841,emoji_POS->gold_NEG,POS,anger,NEG,😁 =)) =)) =)),"Hà Quốc Dũng đ biết thì tiếp cmm thu dần đi thằng ngoo 😁 thông tin phải nhiều chiều vào . Cái loại đ tìm hiểu cc gì ngồi phán hơn thánh =))) loại ba.i n~ như m cũng hợp với mấy con này lắm =))) 
+À mà khoan , có khi loại bại n~ như m dễ ăn án khi đụng phải những con ntn đấy =))) ngoo lắm con ạ"
+test,30203,0.3834,emoji_POS->gold_NEG,POS,anger,NEG,🤣 :)),"Nguyễn Duy Tùng 🤣 đấy là hàng xóm nhà ông, khối hàng xóm nó hãm vcl ra, ông không thấy nên đừng đoán mò, mà cái thằng đàng hoàng hàng xóm nó sống bẩn thì nó cũng không thèm ghét đâu bro :))"
+train,2361,0.377,emoji_POS->gold_NEG,POS,sadness,NEG,🐶 😂 😂 😂 😂,đã từng . và bị phũ như 1 con chó 🐶😂😂😂😂
+train,11993,0.3698,emoji_POS->gold_NEG,POS,sadness,NEG,🤣 😂 🤦🏻‍♀️,🤣😂🤦🏻‍♀️ cười nhưng trong lòng bất lực
+train,tik001487,0.3654,emoji_NEG->gold_POS,NEG,positive,POS,🤦🏻‍♀️ 😪,"Trời ơi 🤦🏻‍♀️thật sự muốn gào thét lên, thương quá mình khóc luôn 😪ko biết làm cách nào mình gửi Vc a chị ấy chút tiền ko????chính chủ kênh ơi sao ll dc với bạn vậy"
+train,15565,0.3598,emoji_POS->gold_NEG,POS,anger,NEG,=)),"Hân Nghiên đừng xem, nghiện hơn đá đó b ơi =))"
