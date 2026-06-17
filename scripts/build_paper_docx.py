@@ -293,6 +293,27 @@ p(("Phát hiện: ", "b"), "trên mỉa mai, biểu tượng cảm xúc là mộ
   "overall: ", ("emoji là tín hiệu hai lưỡi — giúp khi đồng thuận, gài bẫy khi mỉa mai", "b"),
   ", và không kiến trúc fusion nào trong khảo sát gỡ được bẫy này.")
 
+h2("6.8 Emoji-như-văn-bản-được-nhân-bản: baseline đơn giản ngang fusion")
+p("Một phát hiện kỹ thuật: tokenizer của PhoBERT ", ("đại diện được emoji", "b"),
+  " (vd “😂”→[“😂”], “buồn 😢 quá”→[“buồn”,“😢”,“quá”]) — KHÔNG biến thành <unk>. Do đó việc tách "
+  "emoji thành một thể thức riêng (qua q_j) là không cần thiết; có thể giữ emoji trong luồng văn bản. "
+  "Ta thử một phương án ĐƠN GIẢN thay cho routing: giữ emoji trong text và NHÂN BẢN mỗi emoji K lần "
+  "để tăng sức nặng, rồi phân loại text thông thường.")
+p("Bảng 6. Emoji-amplified TF-IDF + Logistic Regression theo số lần nhân bản K.", ("", "i"))
+table(["K", "test macro-F1", "acc đồng thuận", "acc mỉa mai"],
+      [["0 (chỉ text)", "0.410", "0.671", "0.621"],
+       ["1", "0.478", "0.786", "0.600"],
+       ["3", "0.493", "0.832", "0.524"],
+       ["5", "0.498", "0.832", "0.524"],
+       ["10", "0.500", "0.834", "0.524"]])
+p(("Hai kết luận: ", "b"), "(1) chỉ với TF-IDF + nhân bản emoji đã đạt macro-F1 = 0.500, ",
+  ("NGANG CARE-Fusion (0.506)", "b"), " — một phương pháp tầm thường sánh ngang kiến trúc routing "
+  "phức tạp, củng cố thông điệp “hợp nhất đơn giản là đủ”. (2) Tham số K phơi bày trực tiếp hiệu ứng "
+  "EMOJI HAI LƯỠI: K tăng → đồng thuận tăng mạnh (0.67→0.83) nhưng mỉa mai giảm (0.62→0.52). "
+  "Bản PhoBERT (giữ emoji + nhân bản K=3, 1 seed): macro-F1 = 0.480 — nằm trong cùng dải với các "
+  "baseline và CARE-Fusion (~0.48–0.51, trong khoảng nhiễu), xác nhận phương án đơn giản cạnh tranh "
+  "được với fusion phức tạp (cần đa seed để khẳng định chắc).")
+
 # ============================== 7. LIMITATIONS ==============================
 h1("7. Hạn chế")
 b("Một dataset / một ngôn ngữ → cần dataset thứ 2 (vd UIT-VSMEC) để khẳng định tổng quát.")
