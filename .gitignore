@@ -24,3 +24,6 @@ vncorenlp/
 Thumbs.db
 .idea/
 .vscode/
+
+# GoEmotions raw CSVs (large, downloadable)
+data/goemotions_raw/
